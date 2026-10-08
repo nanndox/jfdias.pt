@@ -47,24 +47,36 @@
             <div class="flex items-center gap-3">
                 <a href="#home" class="text-2xl font-bold tracking-wider text-white">JFDIAS<span class="text-brandGold">.PT</span></a>
             </div>
-            <div class="hidden lg:flex gap-7 font-medium text-sm" id="nav-menu">
-                <a href="#home" class="nav-link text-brandGold transition">Início</a>
-                <a href="#servicos" class="nav-link text-slate-300 hover:text-brandGold transition">Serviços</a>
-                <a href="#bio" class="nav-link text-slate-300 hover:text-brandGold transition">Sobre Mim</a>
-                <a href="#credly" class="nav-link text-slate-300 hover:text-brandGold transition">Credly Badges</a>
-                <a href="#certificacoes" class="nav-link text-slate-300 hover:text-brandGold transition">Formação & Certificações</a>
-                <a href="#portfolio" class="nav-link text-slate-300 hover:text-brandGold transition">Portfólio & Labs</a>
-                <a href="#contacto" class="nav-link text-slate-300 hover:text-brandGold transition">Contacto</a>
+            
+            <div class="hidden lg:flex gap-6 font-medium text-sm" id="nav-menu">
+                <a href="#home" data-i18n="nav_home" class="nav-link text-brandGold transition">Início</a>
+                <a href="#servicos" data-i18n="nav_services" class="nav-link text-slate-300 hover:text-brandGold transition">Serviços</a>
+                <a href="#bio" data-i18n="nav_bio" class="nav-link text-slate-300 hover:text-brandGold transition">Sobre Mim</a>
+                <a href="#credly" data-i18n="nav_credly" class="nav-link text-slate-300 hover:text-brandGold transition">Credly Badges</a>
+                <a href="#certificacoes" data-i18n="nav_certs" class="nav-link text-slate-300 hover:text-brandGold transition">Formação & Certificações</a>
+                <a href="#portfolio" data-i18n="nav_portfolio" class="nav-link text-slate-300 hover:text-brandGold transition">Portfólio & Labs</a>
+                <a href="#contacto" data-i18n="nav_contact" class="nav-link text-slate-300 hover:text-brandGold transition">Contacto</a>
             </div>
+
             <div class="flex items-center gap-3">
+                <!-- Seletor de Idioma -->
+                <div class="relative inline-block text-left">
+                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-900 border border-brandGold/40 text-brandGold text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer hover:bg-slate-800 transition">
+                        <option value="pt">🇵🇹 PT</option>
+                        <option value="en">🇬🇧 EN</option>
+                        <option value="es">🇪🇸 ES</option>
+                        <option value="fr">🇫🇷 FR</option>
+                    </select>
+                </div>
+
                 <a href="https://github.com/nanndox" target="_blank" class="p-2 rounded-lg bg-slate-800/80 hover:bg-brandGold hover:text-black transition" title="GitHub">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="p-2 rounded-lg bg-slate-800/80 hover:bg-brandGold hover:text-black transition" title="LinkedIn">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <a href="https://wa.me/351964505531" target="_blank" class="p-2 rounded-lg bg-emerald-600/30 border border-emerald-500/50 text-emerald-400 hover:bg-emerald-500 hover:text-black transition" title="WhatsApp Directo">
-                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
                 </a>
                 <button onclick="toggleAdminModal()" class="bg-brandGold/20 text-brandGold border border-brandGold px-3 py-1.5 text-xs font-semibold rounded-lg hover:bg-brandGold hover:text-black transition flex items-center gap-1.5">
                     <i data-lucide="settings" class="w-4 h-4"></i> Gestão
@@ -85,12 +97,12 @@
             <h2 class="text-xl md:text-2xl text-brandGold font-semibold">
                 Python & IA Automation Developer | Cybersecurity Practitioner
             </h2>
-            <p class="text-slate-300 text-lg leading-relaxed">
+            <p id="hero-desc" class="text-slate-300 text-lg leading-relaxed">
                 Desenvolvo sistemas robustos em Python, automações com IA e arquiteturas de redes orientadas à segurança defensiva e offensive hacking.
             </p>
             
             <div class="flex flex-wrap items-center gap-4 pt-2">
-                <a href="#portfolio" class="bg-brandGold text-black font-bold px-6 py-3 rounded-xl hover:bg-yellow-500 transition shadow-lg shadow-brandGold/20">Ver Portfólio & Labs</a>
+                <a href="#portfolio" data-i18n="btn_portfolio" class="bg-brandGold text-black font-bold px-6 py-3 rounded-xl hover:bg-yellow-500 transition shadow-lg shadow-brandGold/20">Ver Portfólio & Labs</a>
                 <a href="https://wa.me/351964505531" target="_blank" class="bg-emerald-600/20 border border-emerald-500/50 px-5 py-3 rounded-xl hover:bg-emerald-500 hover:text-black transition text-emerald-400 font-semibold flex items-center gap-2">
                     <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Directo
                 </a>
@@ -112,8 +124,8 @@
 
     <!-- Serviços -->
     <section id="servicos" class="py-20 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold text-center text-white mb-4">Serviços & Especializações</h2>
-        <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12">Soluções digitais integradas focadas em desempenho, escalabilidade e cibersegurança.</p>
+        <h2 data-i18n="services_title" class="text-3xl font-bold text-center text-white mb-4">Serviços & Especializações</h2>
+        <p data-i18n="services_sub" class="text-slate-400 text-center max-w-2xl mx-auto mb-12">Soluções digitais integradas focadas em desempenho, escalabilidade e cibersegurança.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="glass-card p-6 rounded-xl hover:border-brandGold transition group">
@@ -153,7 +165,7 @@
     <!-- Bio Dedicada -->
     <section id="bio" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800">
         <div class="glass-card p-8 md:p-12 rounded-3xl">
-            <h2 class="text-3xl font-bold text-white mb-2">Sobre Mim</h2>
+            <h2 data-i18n="bio_title" class="text-3xl font-bold text-white mb-2">Sobre Mim</h2>
             <h3 class="text-xl text-brandGold mb-6">Do Código à Cibersegurança</h3>
             
             <blockquote class="border-l-4 border-brandGold pl-4 italic text-slate-300 text-lg mb-8">
@@ -497,7 +509,7 @@
         </div>
     </div>
 
-    <!-- Scripts de Ícones e Navegação Dinâmica de Scroll -->
+    <!-- Script de Tradução Dinâmica e Animação -->
     <script>
         lucide.createIcons();
 
@@ -506,7 +518,80 @@
             modal.classList.toggle('hidden');
         }
 
-        // Script de alteração dinâmica do item de navegação ativo
+        // Dicionário de Idiomas
+        const i18n = {
+            pt: {
+                nav_home: "Início",
+                nav_services: "Serviços",
+                nav_bio: "Sobre Mim",
+                nav_credly: "Credly Badges",
+                nav_certs: "Formação & Certificações",
+                nav_portfolio: "Portfólio & Labs",
+                nav_contact: "Contacto",
+                hero_desc: "Desenvolvo sistemas robustos em Python, automações com IA e arquiteturas de redes orientadas à segurança defensiva e offensive hacking.",
+                btn_portfolio: "Ver Portfólio & Labs",
+                services_title: "Serviços & Especializações",
+                services_sub: "Soluções digitais integradas focadas em desempenho, escalabilidade e cibersegurança.",
+                bio_title: "Sobre Mim"
+            },
+            en: {
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_bio: "About Me",
+                nav_credly: "Credly Badges",
+                nav_certs: "Education & Certifications",
+                nav_portfolio: "Portfolio & Labs",
+                nav_contact: "Contact",
+                hero_desc: "I develop robust Python systems, AI automations, and network architectures focused on defensive security and offensive hacking.",
+                btn_portfolio: "View Portfolio & Labs",
+                services_title: "Services & Specializations",
+                services_sub: "Integrated digital solutions focused on performance, scalability, and cybersecurity.",
+                bio_title: "About Me"
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_services: "Servicios",
+                nav_bio: "Sobre Mí",
+                nav_credly: "Credly Badges",
+                nav_certs: "Formación y Certificaciones",
+                nav_portfolio: "Portafolio y Labs",
+                nav_contact: "Contacto",
+                hero_desc: "Desarrollo sistemas robustos en Python, automatizaciones con IA y arquitecturas de red enfocadas en seguridad defensiva y hacking ofensivo.",
+                btn_portfolio: "Ver Portafolio y Labs",
+                services_title: "Servicios y Especializaciones",
+                services_sub: "Soluciones digitales integradas enfocadas en rendimiento, escalabilidad y ciberseguridad.",
+                bio_title: "Sobre Mí"
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_services: "Services",
+                nav_bio: "À Propos",
+                nav_credly: "Credly Badges",
+                nav_certs: "Formation & Certifications",
+                nav_portfolio: "Portfolio & Labs",
+                nav_contact: "Contact",
+                hero_desc: "Je développe des systèmes Python robustes, des automatisations IA e des architectures réseau axées sur la sécurité défensive et le hacking offensif.",
+                btn_portfolio: "Voir Portfolio & Labs",
+                services_title: "Services & Spécialisations",
+                services_sub: "Solutions numériques intégrées axées sur la performance, la scalabilité et la cybersécurité.",
+                bio_title: "À Propos"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.textContent = i18n[lang][key];
+                }
+            });
+            const heroDesc = document.getElementById('hero-desc');
+            if (heroDesc && i18n[lang] && i18n[lang].hero_desc) {
+                heroDesc.textContent = i18n[lang].hero_desc;
+            }
+        }
+
+        // Navegação de Scroll Ativo
         const sections = document.querySelectorAll('section, footer');
         const navLinks = document.querySelectorAll('#nav-menu a');
 
@@ -514,7 +599,6 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
