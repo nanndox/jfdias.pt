@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Dias | Python & IA Automation Developer & Cybersecurity Practitioner</title>
+    <title>Jonathan Fernando Dias | Python & IA Automation Developer & Cybersecurity Practitioner</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -45,23 +45,26 @@
     <nav class="fixed top-0 w-full z-50 glass-card border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <span class="text-2xl font-bold tracking-wider text-white">JFDIAS<span class="text-brandGold">.PT</span></span>
+                <a href="#home" class="text-2xl font-bold tracking-wider text-white">JFDIAS<span class="text-brandGold">.PT</span></a>
             </div>
-            <div class="hidden lg:flex gap-7 font-medium text-sm">
-                <a href="#home" class="hover:text-brandGold transition">Início</a>
-                <a href="#servicos" class="hover:text-brandGold transition">Serviços</a>
-                <a href="#bio" class="hover:text-brandGold transition">Sobre Mim</a>
-                <a href="#credly" class="hover:text-brandGold transition text-amber-400">Credly Badges</a>
-                <a href="#certificacoes" class="hover:text-brandGold transition">Formação & Certificações</a>
-                <a href="#portfolio" class="hover:text-brandGold transition">Portfólio & Labs</a>
-                <a href="#contacto" class="hover:text-brandGold transition">Contacto</a>
+            <div class="hidden lg:flex gap-7 font-medium text-sm" id="nav-menu">
+                <a href="#home" class="nav-link text-brandGold transition">Início</a>
+                <a href="#servicos" class="nav-link text-slate-300 hover:text-brandGold transition">Serviços</a>
+                <a href="#bio" class="nav-link text-slate-300 hover:text-brandGold transition">Sobre Mim</a>
+                <a href="#credly" class="nav-link text-slate-300 hover:text-brandGold transition">Credly Badges</a>
+                <a href="#certificacoes" class="nav-link text-slate-300 hover:text-brandGold transition">Formação & Certificações</a>
+                <a href="#portfolio" class="nav-link text-slate-300 hover:text-brandGold transition">Portfólio & Labs</a>
+                <a href="#contacto" class="nav-link text-slate-300 hover:text-brandGold transition">Contacto</a>
             </div>
             <div class="flex items-center gap-3">
                 <a href="https://github.com/nanndox" target="_blank" class="p-2 rounded-lg bg-slate-800/80 hover:bg-brandGold hover:text-black transition" title="GitHub">
-                    <i data-lucide="github" class="w-5 h-5"></i>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="p-2 rounded-lg bg-slate-800/80 hover:bg-brandGold hover:text-black transition" title="LinkedIn">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://wa.me/351964505531" target="_blank" class="p-2 rounded-lg bg-emerald-600/30 border border-emerald-500/50 text-emerald-400 hover:bg-emerald-500 hover:text-black transition" title="WhatsApp Directo">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
                 </a>
                 <button onclick="toggleAdminModal()" class="bg-brandGold/20 text-brandGold border border-brandGold px-3 py-1.5 text-xs font-semibold rounded-lg hover:bg-brandGold hover:text-black transition flex items-center gap-1.5">
                     <i data-lucide="settings" class="w-4 h-4"></i> Gestão
@@ -77,7 +80,7 @@
                 <i data-lucide="shield-check" class="w-4 h-4"></i> Security-First Software Architecture
             </div>
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                Jonathan Dias
+                Jonathan Fernando Dias
             </h1>
             <h2 class="text-xl md:text-2xl text-brandGold font-semibold">
                 Python & IA Automation Developer | Cybersecurity Practitioner
@@ -88,18 +91,21 @@
             
             <div class="flex flex-wrap items-center gap-4 pt-2">
                 <a href="#portfolio" class="bg-brandGold text-black font-bold px-6 py-3 rounded-xl hover:bg-yellow-500 transition shadow-lg shadow-brandGold/20">Ver Portfólio & Labs</a>
+                <a href="https://wa.me/351964505531" target="_blank" class="bg-emerald-600/20 border border-emerald-500/50 px-5 py-3 rounded-xl hover:bg-emerald-500 hover:text-black transition text-emerald-400 font-semibold flex items-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Directo
+                </a>
                 <a href="https://github.com/nanndox" target="_blank" class="glass-card border border-slate-700 px-5 py-3 rounded-xl hover:border-brandGold transition text-white flex items-center gap-2">
-                    <i data-lucide="github" class="w-5 h-5 text-brandGold"></i> GitHub / nanndox
+                    <svg class="w-5 h-5 fill-current text-brandGold" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub / nanndox
                 </a>
                 <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="glass-card border border-slate-700 px-5 py-3 rounded-xl hover:border-brandGold transition text-white flex items-center gap-2">
-                    <i data-lucide="linkedin" class="w-5 h-5 text-blue-400"></i> LinkedIn / ndxconecta
+                    <svg class="w-5 h-5 fill-current text-blue-400" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg> LinkedIn / ndxconecta
                 </a>
             </div>
         </div>
 
         <div class="lg:w-1/2 flex justify-center">
             <div class="glass-card p-4 rounded-3xl max-w-md shadow-2xl relative glow-gold">
-                <img src="card.jpg" alt="Jonathan Dias Cartão de Visita" class="rounded-2xl shadow-md border border-slate-700 w-full object-cover" onerror="this.style.display='none'">
+                <img src="card.jpg" alt="Jonathan Fernando Dias Cartão de Visita" class="rounded-2xl shadow-md border border-slate-700 w-full object-cover" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -197,7 +203,7 @@
         </div>
     </section>
 
-    <!-- Credly Digital Credentials Mirror Section (Ajustado com os teus links e certificações reais) -->
+    <!-- Credly Digital Credentials Mirror Section -->
     <section id="credly" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
             <div>
@@ -283,7 +289,7 @@
         </div>
         
         <div class="space-y-6">
-            <!-- 1. ISTEC (Reingresso 2026 - Presente) -->
+            <!-- 1. ISTEC -->
             <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
                     <div class="flex items-center gap-3">
@@ -297,7 +303,7 @@
                 </p>
             </div>
 
-            <!-- 2. Tokio School Lisboa (2026 - Presente) -->
+            <!-- 2. Tokio School Lisboa -->
             <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
                     <div class="flex items-center gap-3">
@@ -314,7 +320,7 @@
                 </ul>
             </div>
 
-            <!-- 3. Programa C-Academy / CNCS (2025 - 2026) -->
+            <!-- 3. Programa C-Academy / CNCS -->
             <div class="glass-card p-6 rounded-2xl border-l-4 border-l-red-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
                     <div class="flex items-center gap-3">
@@ -332,7 +338,7 @@
                 </ul>
             </div>
 
-            <!-- 4. ISTEC (Primeira Frequência 2013 - 2015) -->
+            <!-- 4. ISTEC (2013-2015) -->
             <div class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
                     <div class="flex items-center gap-3">
@@ -346,7 +352,7 @@
                 </p>
             </div>
 
-            <!-- 5. Escola NHK (2011) -->
+            <!-- 5. Escola NHK -->
             <div class="glass-card p-6 rounded-2xl border-l-4 border-l-amber-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
                     <div class="flex items-center gap-3">
@@ -360,7 +366,7 @@
                 </p>
             </div>
 
-            <!-- 6. Escola Secundária de Sacavém (2010) -->
+            <!-- 6. Secundária -->
             <div class="glass-card p-6 rounded-2xl border-l-4 border-l-slate-600 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
                     <div class="flex items-center gap-3">
@@ -424,15 +430,23 @@
                 <p class="text-slate-400 text-sm">Sacavém, Loures - 2685, Portugal</p>
                 <div class="space-y-1 text-slate-300 text-sm">
                     <p>📧 Email: <a href="mailto:jonathandias.info@gmail.com" class="hover:text-brandGold transition">jonathandias.info@gmail.com</a></p>
-                    <p>📱 Tel: <a href="tel:+351964505531" class="hover:text-brandGold transition">+351 964 505 531</a></p>
+                    <p>📱 Tel / WhatsApp: <a href="https://wa.me/351964505531" target="_blank" class="hover:text-brandGold transition">+351 964 505 531</a></p>
                 </div>
             </div>
 
             <div class="space-y-4">
                 <h4 class="text-lg font-semibold text-white">Liga-te comigo nas Redes:</h4>
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/351964505531" target="_blank" class="p-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-500 transition flex items-center gap-3 group">
+                        <i data-lucide="message-square" class="w-6 h-6 text-emerald-400 group-hover:scale-110 transition"></i>
+                        <div>
+                            <p class="text-white font-bold text-sm">WhatsApp</p>
+                            <p class="text-slate-400 text-xs">Mensagem Direta</p>
+                        </div>
+                    </a>
+
                     <a href="https://github.com/nanndox" target="_blank" class="p-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-brandGold transition flex items-center gap-3 group">
-                        <i data-lucide="github" class="w-6 h-6 text-brandGold group-hover:scale-110 transition"></i>
+                        <svg class="w-6 h-6 fill-current text-brandGold group-hover:scale-110 transition" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         <div>
                             <p class="text-white font-bold text-sm">GitHub</p>
                             <p class="text-slate-400 text-xs">@nanndox</p>
@@ -440,7 +454,7 @@
                     </a>
 
                     <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="p-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-brandGold transition flex items-center gap-3 group">
-                        <i data-lucide="linkedin" class="w-6 h-6 text-blue-400 group-hover:scale-110 transition"></i>
+                        <svg class="w-6 h-6 fill-current text-blue-400 group-hover:scale-110 transition" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         <div>
                             <p class="text-white font-bold text-sm">LinkedIn</p>
                             <p class="text-slate-400 text-xs">@ndxconecta</p>
@@ -483,6 +497,7 @@
         </div>
     </div>
 
+    <!-- Scripts de Ícones e Navegação Dinâmica de Scroll -->
     <script>
         lucide.createIcons();
 
@@ -490,6 +505,30 @@
             const modal = document.getElementById('adminModal');
             modal.classList.toggle('hidden');
         }
+
+        // Script de alteração dinâmica do item de navegação ativo
+        const sections = document.querySelectorAll('section, footer');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-brandGold');
+                link.classList.add('text-slate-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-slate-300');
+                    link.classList.add('text-brandGold');
+                }
+            });
+        });
 
         document.getElementById('addProjectForm').addEventListener('submit', function(e) {
             e.preventDefault();
