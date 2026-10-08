@@ -24,15 +24,18 @@
     </script>
     <style>
         .bg-custom {
-            background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.85), rgba(11, 15, 23, 0.95)), url('bg.jpg');
+            background-image: linear-gradient(to bottom, rgba(11, 15, 23, 0.88), rgba(11, 15, 23, 0.96)), url('bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
         .glass-card {
-            background: rgba(19, 27, 46, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(19, 27, 46, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(212, 175, 55, 0.22);
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
         }
     </style>
 </head>
@@ -44,24 +47,33 @@
             <div class="flex items-center gap-3">
                 <span class="text-2xl font-bold tracking-wider text-white">JFDIAS<span class="text-brandGold">.PT</span></span>
             </div>
-            <div class="hidden md:flex gap-8 font-medium">
+            <div class="hidden lg:flex gap-7 font-medium text-sm">
                 <a href="#home" class="hover:text-brandGold transition">Início</a>
                 <a href="#servicos" class="hover:text-brandGold transition">Serviços</a>
                 <a href="#bio" class="hover:text-brandGold transition">Sobre Mim</a>
-                <a href="#portfolio" class="hover:text-brandGold transition">Portfólio & Labs</a>
+                <a href="#credly" class="hover:text-brandGold transition text-amber-400">Credly Badges</a>
                 <a href="#certificacoes" class="hover:text-brandGold transition">Certificações</a>
+                <a href="#portfolio" class="hover:text-brandGold transition">Portfólio & Labs</a>
                 <a href="#contacto" class="hover:text-brandGold transition">Contacto</a>
             </div>
-            <button onclick="toggleAdminModal()" class="bg-brandGold/20 text-brandGold border border-brandGold px-4 py-2 rounded-lg hover:bg-brandGold hover:text-black transition flex items-center gap-2">
-                <i data-lucide="settings"></i> Painel de Gestão
-            </button>
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/nanndox" target="_blank" class="p-2 rounded-lg bg-slate-800/80 hover:bg-brandGold hover:text-black transition" title="GitHub">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="p-2 rounded-lg bg-slate-800/80 hover:bg-brandGold hover:text-black transition" title="LinkedIn">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <button onclick="toggleAdminModal()" class="bg-brandGold/20 text-brandGold border border-brandGold px-3 py-1.5 text-xs font-semibold rounded-lg hover:bg-brandGold hover:text-black transition flex items-center gap-1.5">
+                    <i data-lucide="settings" class="w-4 h-4"></i> Gestão
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section (Intro Comercial) -->
-    <section id="home" class="pt-36 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="space-y-6 md:w-1/2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandGold/10 border border-brandGold/30 text-brandGold text-sm">
+    <!-- Hero Section -->
+    <section id="home" class="pt-36 pb-20 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div class="space-y-6 lg:w-1/2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandGold/10 border border-brandGold/30 text-brandGold text-sm font-semibold">
                 <i data-lucide="shield-check" class="w-4 h-4"></i> Security-First Software Architecture
             </div>
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
@@ -71,16 +83,24 @@
                 Python & IA Automation Developer | Cybersecurity Practitioner
             </h2>
             <p class="text-slate-300 text-lg leading-relaxed">
-                Desenvolvo soluções de software robustas, automações inteligentes e arquiteturas protegidas. Transformo desafios complexos em sistemas eficientes e à prova de vulnerabilidades.
+                Desenvolvo sistemas robustos em Python, automações com IA e arquiteturas de redes orientadas à segurança defensiva e offensive hacking.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4">
+            
+            <!-- CTAs e Links de Redes -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
                 <a href="#portfolio" class="bg-brandGold text-black font-bold px-6 py-3 rounded-xl hover:bg-yellow-500 transition shadow-lg shadow-brandGold/20">Ver Portfólio & Labs</a>
-                <a href="#contacto" class="border border-slate-600 px-6 py-3 rounded-xl hover:border-brandGold transition text-white">Falar Comigo</a>
+                <a href="https://github.com/nanndox" target="_blank" class="glass-card border border-slate-700 px-5 py-3 rounded-xl hover:border-brandGold transition text-white flex items-center gap-2">
+                    <i data-lucide="github" class="w-5 h-5 text-brandGold"></i> GitHub / nanndox
+                </a>
+                <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="glass-card border border-slate-700 px-5 py-3 rounded-xl hover:border-brandGold transition text-white flex items-center gap-2">
+                    <i data-lucide="linkedin" class="w-5 h-5 text-blue-400"></i> LinkedIn / ndxconecta
+                </a>
             </div>
         </div>
-        <div class="md:w-1/2 flex justify-center">
-            <div class="glass-card p-4 rounded-2xl max-w-md shadow-2xl relative">
-                <img src="card.jpg" alt="Jonathan Dias Cartão de Visita" class="rounded-xl shadow-md border border-slate-700" onerror="this.style.display='none'">
+
+        <div class="lg:w-1/2 flex justify-center">
+            <div class="glass-card p-4 rounded-3xl max-w-md shadow-2xl relative glow-gold">
+                <img src="card.jpg" alt="Jonathan Dias Cartão de Visita" class="rounded-2xl shadow-md border border-slate-700 w-full object-cover" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -141,7 +161,7 @@
                         <i data-lucide="target" class="text-brandGold"></i> A Minha Missão & Visão
                     </h4>
                     <p>
-                        Sou Desenvolvedor Python, Praticante de Cibersegurança e Estudante de Engenharia Informática, focado em desenhar soluções de software robustas com uma abordagem Security-First.
+                        Sou Desenvolvedor Python, Praticante de Cibersegurança e Estudante de Engenharia Informática no ISTEC, focado em desenhar soluções de software robustas com uma abordagem Security-First.
                     </p>
                     <p>
                         A minha trajetória profissional reflete resiliência, responsabilidade e uma capacidade contínua de evolução. Para mim, programar vai muito além da escrita de código: consiste em resolver problemas do mundo real, otimizar processos complexos e garantir a integridade e segurança da informação numa era totalmente conectada.
@@ -167,7 +187,7 @@
                             <span class="text-brandGold font-bold">2023:</span> Reativação do percurso técnico, mergulhando no estudo intensivo de Python e Cibersegurança.
                         </div>
                         <div>
-                            <span class="text-brandGold font-bold">2025–2026:</span> Formação avançada em Python pela Tokio School e mais de 200 horas práticas em Cibersegurança pela C-Academy / CNCS.
+                            <span class="text-brandGold font-bold">2025–2026:</span> Formação avançada em Python pela Tokio School e mais de 210 horas práticas em Cibersegurança pelo programa C-Academy / CNCS.
                         </div>
                         <div>
                             <span class="text-brandGold font-bold">2026 (O Regresso às Origens):</span> Reingresso oficial na Licenciatura em Engenharia Informática no ISTEC.
@@ -178,8 +198,125 @@
         </div>
     </section>
 
+    <!-- Credly Digital Credentials Mirror Section -->
+    <section id="credly" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+                    <i data-lucide="verified" class="w-4 h-4"></i> Credenciais Verificadas
+                </div>
+                <h2 class="text-3xl font-bold text-white">Espelho Oficial Credly</h2>
+                <p class="text-slate-400">Badges e certificações validadas oficialmente na plataforma Credly.</p>
+            </div>
+            <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" class="bg-amber-500 text-black font-bold px-5 py-2.5 rounded-xl hover:bg-amber-400 transition flex items-center gap-2">
+                <i data-lucide="external-link" class="w-4 h-4"></i> Ver Perfil Completo no Credly
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-2xl border border-amber-500/30 hover:border-amber-400 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-amber-400 text-xs font-bold">Cisco NetAcad</span>
+                        <i data-lucide="award" class="text-amber-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Python Essentials 2</h3>
+                    <p class="text-slate-400 text-sm mb-4">Certificação reconhecida internacionalmente emitida pela Cisco Networking Academy / OpenEDG Python Institute.</p>
+                </div>
+                <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" class="text-amber-400 text-sm font-semibold flex items-center gap-1 hover:underline">
+                    Validar Badge no Credly <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-amber-500/30 hover:border-amber-400 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-amber-400 text-xs font-bold">CNCS / C-Academy</span>
+                        <i data-lucide="shield-check" class="text-amber-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Hacking e Testes de Penetração</h3>
+                    <p class="text-slate-400 text-sm mb-4">Emitido pelo Instituto Politécnico do Porto no âmbito do Centro Nacional de Cibersegurança.</p>
+                </div>
+                <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" class="text-amber-400 text-sm font-semibold flex items-center gap-1 hover:underline">
+                    Validar Badge no Credly <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-amber-500/30 hover:border-amber-400 transition flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2.5 py-1 rounded bg-slate-800 text-amber-400 text-xs font-bold">CNCS / C-Academy</span>
+                        <i data-lucide="lock" class="text-amber-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Segurança de Redes & Sistemas</h3>
+                    <p class="text-slate-400 text-sm mb-4">Emitido pela FCUL e IP Viseu para especializações avançadas em arquitetura e defesa de redes.</p>
+                </div>
+                <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" class="text-amber-400 text-sm font-semibold flex items-center gap-1 hover:underline">
+                    Validar Badge no Credly <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explicação Detalhada das Certificações -->
+    <section id="certificacoes" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800">
+        <h2 class="text-3xl font-bold text-white mb-2">Formação Académica & Certificações Detalhadas</h2>
+        <p class="text-slate-400 mb-10">Módulos universitários e formações especializadas com os respetivos âmbitos técnicos:</p>
+        
+        <div class="space-y-6">
+            <!-- FCUL -->
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-500">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                    <h3 class="text-xl font-bold text-white">FCUL — Faculdade de Ciências da Universidade de Lisboa</h3>
+                    <span class="text-brandGold text-sm font-semibold">C-Academy / CNCS</span>
+                </div>
+                <ul class="space-y-3 text-slate-300 text-sm">
+                    <li><strong class="text-white">• Fundamentos de Redes de Computadores:</strong> Desenvolvimento de laboratórios de topologia de redes, análise de modelos OSI e TCP/IP, endereçamento IPv4/IPv6, routing e comutação.</li>
+                    <li><strong class="text-white">• Princípios Técnicos em Cibersegurança:</strong> Implementação de políticas de segurança da informação, análise de ameaças, gestão de riscos e conceitos fundamentais de criptografia aplicada.</li>
+                    <li><strong class="text-white">• Segurança de Sistemas:</strong> Técnicas de hardening de sistemas operativos (Linux/Windows), gestão de privilégios, controlo de acessos e monitorização de processos críticos.</li>
+                </ul>
+            </div>
+
+            <!-- IPV -->
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-amber-500">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                    <h3 class="text-xl font-bold text-white">IPV — Instituto Politécnico de Viseu</h3>
+                    <span class="text-brandGold text-sm font-semibold">C-Academy / CNCS</span>
+                </div>
+                <p class="text-slate-300 text-sm"><strong class="text-white">• Segurança de Redes:</strong> Análise avançada de tráfego de rede com Wireshark, configuração e implementação de firewalls, sistemas de deteção/prevenção de intrusões (IDS/IPS) e arquiteturas de redes VPN seguras.</p>
+            </div>
+
+            <!-- IPP -->
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-red-500">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                    <h3 class="text-xl font-bold text-white">IPP — Instituto Politécnico do Porto</h3>
+                    <span class="text-brandGold text-sm font-semibold">C-Academy / CNCS</span>
+                </div>
+                <p class="text-slate-300 text-sm"><strong class="text-white">• Hacking e Testes de Penetração:</strong> Exercícios práticos de reconhecimento com Nmap, exploração controlada de vulnerabilidades web com Burp Suite, simulação de vetores de ataque com Metasploit e elaboração de relatórios de PenTest.</p>
+            </div>
+
+            <!-- Tokio School -->
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-500">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                    <h3 class="text-xl font-bold text-white">Tokio School Lisboa</h3>
+                    <span class="text-brandGold text-sm font-semibold">Programação em Python & Preparação PCAP</span>
+                </div>
+                <p class="text-slate-300 text-sm"><strong class="text-white">• Curso Avançado de Python:</strong> Domínio de Programação Orientada a Objetos (POO), estruturas de dados avançadas, desenvolvimento de APIs RESTful com Flask, persitência em SQLite e automação com integração de LLMs e agentes de IA.</p>
+            </div>
+
+            <!-- ISTEC -->
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-500">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-3">
+                    <h3 class="text-xl font-bold text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
+                    <span class="text-brandGold text-sm font-semibold">Licenciatura em Engenharia Informática</span>
+                </div>
+                <p class="text-slate-300 text-sm"><strong class="text-white">• Engenharia & Fundamentos de Baixo Nível:</strong> Reingresso oficial e frequência de unidades curriculares em arquitetura de computadores, matemática aplicada, algoritmos e linguagens C e C++.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Portfólio & Labs -->
-    <section id="portfolio" class="py-20 px-6 max-w-7xl mx-auto">
+    <section id="portfolio" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800">
         <div class="flex justify-between items-end mb-12">
             <div>
                 <h2 class="text-3xl font-bold text-white">Portfólio & Laboratórios</h2>
@@ -217,59 +354,42 @@
         </div>
     </section>
 
-    <!-- Certificações -->
-    <section id="certificacoes" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800">
-        <h2 class="text-3xl font-bold text-white mb-8">Formação Académica & Certificações</h2>
-        <div id="certGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
-                <i data-lucide="graduation-cap" class="text-brandGold w-8 h-8 flex-shrink-0"></i>
-                <div>
-                    <h3 class="text-lg font-bold text-white">Licenciatura em Engenharia Informática</h3>
-                    <p class="text-brandGold text-sm">ISTEC (2026 – Presente)</p>
-                    <p class="text-slate-400 text-sm mt-1">Reingresso oficial e frequência de Unidades Curriculares de especialização superior em Engenharia.</p>
+    <!-- Contacto e Redes Profissionais -->
+    <footer id="contacto" class="py-16 border-t border-slate-800 glass-card mt-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold text-white">Jonathan Fernando Dias</h3>
+                <p class="text-brandGold font-semibold">Python & IA Automation Developer | Cybersecurity Practitioner</p>
+                <p class="text-slate-400 text-sm">Sacavém, Loures - 2685, Portugal</p>
+                <div class="space-y-1 text-slate-300 text-sm">
+                    <p>📧 Email: <a href="mailto:jonathandias.info@gmail.com" class="hover:text-brandGold transition">jonathandias.info@gmail.com</a></p>
+                    <p>📱 Tel: <a href="tel:+351964505531" class="hover:text-brandGold transition">+351 964 505 531</a></p>
                 </div>
             </div>
 
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
-                <i data-lucide="award" class="text-brandGold w-8 h-8 flex-shrink-0"></i>
-                <div>
-                    <h3 class="text-lg font-bold text-white">Programação Avançada em Python</h3>
-                    <p class="text-brandGold text-sm">Tokio School Lisboa (2026)</p>
-                    <p class="text-slate-400 text-sm mt-1">Projeto final aprovado e defendido com distinção.</p>
-                </div>
-            </div>
+            <div class="space-y-4">
+                <h4 class="text-lg font-semibold text-white">Liga-te comigo nas Redes:</h4>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://github.com/nanndox" target="_blank" class="p-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-brandGold transition flex items-center gap-3 group">
+                        <i data-lucide="github" class="w-6 h-6 text-brandGold group-hover:scale-110 transition"></i>
+                        <div>
+                            <p class="text-white font-bold text-sm">GitHub</p>
+                            <p class="text-slate-400 text-xs">@nanndox</p>
+                        </div>
+                    </a>
 
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
-                <i data-lucide="shield-alert" class="text-brandGold w-8 h-8 flex-shrink-0"></i>
-                <div>
-                    <h3 class="text-lg font-bold text-white">Hacking e Testes de Penetração</h3>
-                    <p class="text-brandGold text-sm">IP Porto / C-Academy (2026)</p>
-                    <p class="text-slate-400 text-sm mt-1">Avaliação prática de vulnerabilidades e exploração controlada.</p>
-                </div>
-            </div>
-
-            <div class="glass-card p-6 rounded-xl flex items-start gap-4">
-                <i data-lucide="server" class="text-brandGold w-8 h-8 flex-shrink-0"></i>
-                <div>
-                    <h3 class="text-lg font-bold text-white">Segurança de Redes & Sistemas</h3>
-                    <p class="text-brandGold text-sm">FCUL & IP Viseu / C-Academy (2025–2026)</p>
-                    <p class="text-slate-400 text-sm mt-1">Hardening de ambientes, princípios de defesa e análise de tráfego.</p>
+                    <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="p-4 rounded-xl bg-slate-900 border border-slate-700 hover:border-brandGold transition flex items-center gap-3 group">
+                        <i data-lucide="linkedin" class="w-6 h-6 text-blue-400 group-hover:scale-110 transition"></i>
+                        <div>
+                            <p class="text-white font-bold text-sm">LinkedIn</p>
+                            <p class="text-slate-400 text-xs">@ndxconecta</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contacto / Rodapé -->
-    <footer id="contacto" class="py-12 border-t border-slate-800 glass-card mt-20">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <h3 class="text-xl font-bold text-white">Jonathan Fernando Dias</h3>
-                <p class="text-slate-400 text-sm">Sacavém, Loures - 2685, Portugal</p>
-                <p class="text-slate-400 text-sm">Email: jonathandias.info@gmail.com | Tel: +351 964 505 531</p>
-            </div>
-            <div class="text-slate-500 text-sm">
-                © 2026 JFDIAS.PT. Todos os direitos reservados.
-            </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-slate-800/60 text-center text-slate-500 text-xs">
+            © 2026 JFDIAS.PT. Todos os direitos reservados.
         </div>
     </footer>
 
