@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jfdias.pt | Python & IA Developer & Cybersecurity Practitioner</title>
+    <title>jfdias.pt | Python & IA Automation Developer & Cybersecurity Practitioner</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -13,12 +13,12 @@
             theme: {
                 extend: {
                     colors: {
-                        brandDark: '#07090e',
-                        brandSurface: '#0f172a',
-                        brandViolet: '#8b5cf6',
-                        brandVioletDark: '#6d28d9',
-                        brandBlue: '#3b82f6',
-                        brandBorder: 'rgba(139, 92, 246, 0.15)',
+                        brandDark: '#060911',
+                        brandCard: '#0d1322',
+                        brandViolet: '#7c3aed',
+                        brandVioletLight: '#a78bfa',
+                        brandBlue: '#2563eb',
+                        brandBlueDark: '#1e3a8a',
                     }
                 }
             }
@@ -26,46 +26,46 @@
     </script>
     <style>
         .bg-custom {
-            background-color: #07090e;
+            background-color: #060911;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(109, 40, 217, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 50% -20%, rgba(124, 58, 237, 0.18) 0%, transparent 60%),
+                radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
             background-attachment: fixed;
         }
         .cyber-grid {
             background-size: 40px 40px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
         }
         .glass-card {
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(13, 19, 34, 0.7);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(139, 92, 246, 0.18);
+            border: 1px solid rgba(124, 58, 237, 0.18);
         }
         .glass-card:hover {
-            border-color: rgba(139, 92, 246, 0.4);
+            border-color: rgba(124, 58, 237, 0.4);
         }
     </style>
 </head>
 <body class="bg-brandDark text-slate-300 bg-custom cyber-grid font-sans antialiased min-h-screen relative overflow-x-hidden">
 
-    <!-- Navbar -->
+    <!-- Navbar Limpa (Sem botão de gestão) -->
     <nav class="fixed top-0 w-full z-50 glass-card border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <a href="#home" class="text-2xl font-bold tracking-tight text-white font-mono">jfdias<span class="text-brandViolet">.pt</span></a>
+                <a href="#home" class="text-2xl font-bold tracking-tight text-white font-mono lowercase">jfdias<span class="text-brandVioletLight">.pt</span></a>
             </div>
             
             <div class="hidden lg:flex gap-8 font-medium text-xs uppercase tracking-widest text-slate-400" id="nav-menu">
-                <a href="#home" data-i18n="nav_home" class="nav-link text-brandViolet transition hover:text-white">Início</a>
-                <a href="#servicos" data-i18n="nav_services" class="nav-link hover:text-brandViolet transition">Serviços</a>
-                <a href="#bio" data-i18n="nav_bio" class="nav-link hover:text-brandViolet transition">Sobre Mim</a>
-                <a href="#credly" data-i18n="nav_credly" class="nav-link hover:text-brandViolet transition">Credly Badges</a>
-                <a href="#certificacoes" data-i18n="nav_certs" class="nav-link hover:text-brandViolet transition">Formação</a>
-                <a href="#portfolio" data-i18n="nav_portfolio" class="nav-link hover:text-brandViolet transition">Portfólio</a>
-                <a href="#contacto" data-i18n="nav_contact" class="nav-link hover:text-brandViolet transition">Contacto</a>
+                <a href="#home" data-i18n="nav_home" class="nav-link text-brandVioletLight transition hover:text-white">Início</a>
+                <a href="#servicos" data-i18n="nav_services" class="nav-link hover:text-brandVioletLight transition">Serviços</a>
+                <a href="#bio" data-i18n="nav_bio" class="nav-link hover:text-brandVioletLight transition">Sobre Mim</a>
+                <a href="#credly" data-i18n="nav_credly" class="nav-link hover:text-brandVioletLight transition">Credly Badges</a>
+                <a href="#certificacoes" data-i18n="nav_certs" class="nav-link hover:text-brandVioletLight transition">Formação</a>
+                <a href="#portfolio" data-i18n="nav_portfolio" class="nav-link hover:text-brandVioletLight transition">Portfólio & Labs</a>
+                <a href="#contacto" data-i18n="nav_contact" class="nav-link hover:text-brandVioletLight transition">Contacto</a>
             </div>
 
             <div class="flex items-center gap-3">
@@ -93,15 +93,15 @@
     <section id="home" class="pt-44 pb-24 px-6 max-w-5xl mx-auto flex flex-col items-center justify-center text-center relative z-10">
         <div class="space-y-6 w-full flex flex-col items-center">
             
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandViolet/10 border border-brandViolet/30 text-brandViolet text-xs font-mono font-medium">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Security-First Architecture
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandViolet/10 border border-brandViolet/30 text-brandVioletLight text-xs font-mono font-medium">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Security-First Software Architecture
             </div>
 
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
                 Jonathan Fernando Dias
             </h1>
 
-            <h2 class="text-lg sm:text-2xl md:text-2xl text-violet-300 font-medium max-w-3xl">
+            <h2 class="text-lg sm:text-2xl md:text-2xl text-purple-300 font-medium max-w-3xl">
                 Python & IA Automation Developer | Cybersecurity Practitioner
             </h2>
 
@@ -110,18 +110,18 @@
             </p>
             
             <div class="flex flex-wrap items-center justify-center gap-4 pt-6 w-full">
-                <a href="#portfolio" data-i18n="btn_portfolio" class="bg-brandViolet text-white font-semibold px-6 py-3 rounded-xl hover:bg-brandVioletDark transition shadow-lg shadow-brandViolet/20 text-sm">Ver Portfólio & Labs</a>
+                <a href="#portfolio" data-i18n="btn_portfolio" class="bg-brandViolet text-white font-semibold px-6 py-3 rounded-xl hover:bg-violet-700 transition shadow-lg shadow-brandViolet/20 text-sm">Ver Portfólio & Labs</a>
                 
                 <a href="https://wa.me/351964505531" target="_blank" class="glass-card px-6 py-3 rounded-xl hover:border-emerald-500 transition text-emerald-400 text-sm font-medium flex items-center gap-2">
                     <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp Directo
                 </a>
 
                 <a href="https://github.com/nanndox" target="_blank" class="glass-card px-6 py-3 rounded-xl hover:border-brandViolet transition text-slate-200 text-sm flex items-center gap-2">
-                    <i data-lucide="github" class="w-4 h-4 text-brandViolet"></i> GitHub
+                    <i data-lucide="github" class="w-4 h-4 text-brandVioletLight"></i> GitHub / nanndox
                 </a>
 
                 <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="glass-card px-6 py-3 rounded-xl hover:border-brandBlue transition text-slate-200 text-sm flex items-center gap-2">
-                    <i data-lucide="linkedin" class="w-4 h-4 text-brandBlue"></i> LinkedIn
+                    <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> LinkedIn / ndxconecta
                 </a>
             </div>
 
@@ -143,7 +143,7 @@
             </div>
 
             <div class="glass-card p-6 rounded-2xl transition group">
-                <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center text-brandViolet mb-4">
+                <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center text-brandVioletLight mb-4">
                     <i data-lucide="shield" class="w-5 h-5"></i>
                 </div>
                 <h3 class="text-lg font-bold text-white mb-2">Custom Software & Security</h3>
@@ -172,7 +172,7 @@
     <section id="bio" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60 relative z-10">
         <div class="glass-card p-8 md:p-12 rounded-3xl">
             <h2 data-i18n="bio_title" class="text-2xl font-bold text-white mb-1">Sobre Mim</h2>
-            <h3 data-i18n="bio_subtitle" class="text-base text-brandViolet mb-6">Do Código à Cibersegurança</h3>
+            <h3 data-i18n="bio_subtitle" class="text-base text-brandVioletLight mb-6">Do Código à Cibersegurança</h3>
             
             <blockquote data-i18n="bio_quote" class="border-l-2 border-brandViolet pl-4 italic text-slate-300 text-sm md:text-base mb-8">
                 "A tecnologia é a minha vocação reconquistada. O meu percurso combina a maturidade da vida real, a paixão pela resolução de problemas e o compromisso de construir software seguro, rápido e eficiente."
@@ -181,7 +181,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
                     <h4 data-i18n="bio_mission_title" class="text-base font-semibold text-white flex items-center gap-2">
-                        <i data-lucide="target" class="text-brandViolet w-4 h-4"></i> A Minha Missão & Visão
+                        <i data-lucide="target" class="text-brandVioletLight w-4 h-4"></i> A Minha Missão & Visão
                     </h4>
                     <p data-i18n="bio_p1">
                         Sou Desenvolvedor Python, Praticante de Cibersegurança e Estudante de Engenharia Informática no ISTEC, focado em desenhar soluções de software robustas com uma abordagem Security-First.
@@ -193,7 +193,7 @@
 
                 <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
                     <h4 data-i18n="bio_journey_title" class="text-base font-semibold text-white flex items-center gap-2">
-                        <i data-lucide="compass" class="text-brandViolet w-4 h-4"></i> A Minha Jornada
+                        <i data-lucide="compass" class="text-brandVioletLight w-4 h-4"></i> A Minha Jornada
                     </h4>
                     <p data-i18n="bio_journey_intro" class="text-xs text-slate-400">
                         A minha paixão pela computação começou na juventude com a formação em redes e hardware, culminando na minha entrada na Licenciatura em Engenharia Informática no ISTEC.
@@ -201,16 +201,16 @@
                     
                     <div class="space-y-2 border-l border-slate-800 pl-4 my-3 text-xs">
                         <div>
-                            <span class="text-brandViolet font-mono font-bold">2015:</span> <span data-i18n="timeline_2015">Pausa nos estudos para apoio familiar e consolidação profissional.</span>
+                            <span class="text-brandVioletLight font-mono font-bold">2015:</span> <span data-i18n="timeline_2015">Pausa nos estudos para apoio familiar e consolidação profissional.</span>
                         </div>
                         <div>
-                            <span class="text-brandViolet font-mono font-bold">2023:</span> <span data-i18n="timeline_2023">Reativação intensiva do percurso técnico em Python e Cibersegurança.</span>
+                            <span class="text-brandVioletLight font-mono font-bold">2023:</span> <span data-i18n="timeline_2023">Reativação intensiva do percurso técnico em Python e Cibersegurança.</span>
                         </div>
                         <div>
-                            <span class="text-brandViolet font-mono font-bold">2025–2026:</span> <span data-i18n="timeline_2025">Tokio School (Python) & 210h de Cibersegurança (Programa C-Academy / CNCS).</span>
+                            <span class="text-brandVioletLight font-mono font-bold">2025–2026:</span> <span data-i18n="timeline_2025">Tokio School (Python) & 210h de Cibersegurança (Programa C-Academy / CNCS).</span>
                         </div>
                         <div>
-                            <span class="text-brandViolet font-mono font-bold">2026:</span> <span data-i18n="timeline_2026">Reingresso na Licenciatura em Engenharia Informática no ISTEC.</span>
+                            <span class="text-brandVioletLight font-mono font-bold">2026:</span> <span data-i18n="timeline_2026">Reingresso na Licenciatura em Engenharia Informática no ISTEC.</span>
                         </div>
                     </div>
                 </div>
@@ -222,13 +222,13 @@
     <section id="credly" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60 relative z-10">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandViolet/10 border border-brandViolet/30 text-brandViolet text-xs font-mono mb-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandViolet/10 border border-brandViolet/30 text-brandVioletLight text-xs font-mono mb-2">
                     <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Credenciais Verificadas
                 </div>
                 <h2 data-i18n="credly_title" class="text-2xl font-bold text-white">Espelho Oficial Credly</h2>
                 <p data-i18n="credly_sub" class="text-slate-400 text-xs">Badges internacionais validadas pela Cisco Networking Academy & OpenEDG Python Institute.</p>
             </div>
-            <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" data-i18n="credly_btn" class="bg-slate-900 border border-brandViolet/40 text-brandViolet text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-brandViolet hover:text-white transition flex items-center gap-2">
+            <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" data-i18n="credly_btn" class="bg-slate-900 border border-brandViolet/40 text-brandVioletLight text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-brandViolet hover:text-white transition flex items-center gap-2">
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Perfil no Credly
             </a>
         </div>
@@ -239,14 +239,14 @@
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Cisco / OpenEDG</span>
-                        <i data-lucide="terminal" class="text-brandViolet w-5 h-5"></i>
+                        <i data-lucide="terminal" class="text-brandVioletLight w-5 h-5"></i>
                     </div>
                     <h3 class="text-base font-bold text-white mb-2">Python Essentials 1</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-4">
                         Fundamentos da programação em Python, controlo de fluxo, algoritmos e funções.
                     </p>
                 </div>
-                <a href="https://www.credly.com/earner/earned/badge/eb85fa9a-a594-4944-8974-dfb82bf9ee54" target="_blank" data-i18n="badge_validate" class="text-brandViolet text-xs font-semibold flex items-center gap-1 hover:underline">
+                <a href="https://www.credly.com/earner/earned/badge/eb85fa9a-a594-4944-8974-dfb82bf9ee54" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">
                     Validar Badge <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -256,14 +256,14 @@
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Cisco / OpenEDG</span>
-                        <i data-lucide="code" class="text-brandViolet w-5 h-5"></i>
+                        <i data-lucide="code" class="text-brandVioletLight w-5 h-5"></i>
                     </div>
                     <h3 class="text-base font-bold text-white mb-2">Python Essentials 2</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-4">
                         Programação Orientada a Objetos (POO), excepções, módulos e preparação PCAP™.
                     </p>
                 </div>
-                <a href="https://www.credly.com/earner/earned/badge/7ce76c0c-0c76-445d-af2f-3df85e97ae5b" target="_blank" data-i18n="badge_validate" class="text-brandViolet text-xs font-semibold flex items-center gap-1 hover:underline">
+                <a href="https://www.credly.com/earner/earned/badge/7ce76c0c-0c76-445d-af2f-3df85e97ae5b" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">
                     Validar Badge <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -273,86 +273,86 @@
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Cisco NetAcad</span>
-                        <i data-lucide="shield-alert" class="text-brandViolet w-5 h-5"></i>
+                        <i data-lucide="shield-alert" class="text-brandVioletLight w-5 h-5"></i>
                     </div>
                     <h3 class="text-base font-bold text-white mb-2">Junior Cybersecurity Analyst</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-4">
                         Operações SOC, análise de tráfego, mitigação de ameaças e resposta a incidentes.
                     </p>
                 </div>
-                <a href="https://www.credly.com/earner/earned/badge/a9649735-a650-4581-ae14-d49b9497b053" target="_blank" data-i18n="badge_validate" class="text-brandViolet text-xs font-semibold flex items-center gap-1 hover:underline">
+                <a href="https://www.credly.com/earner/earned/badge/a9649735-a650-4581-ae14-d49b9497b053" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">
                     Validar Badge <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Formação Académica com Datas Exatas -->
+    <!-- Formação Académica com Datas Exatas do teu Currículo -->
     <section id="certificacoes" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60 relative z-10">
         <div class="mb-10">
             <h2 data-i18n="certs_title" class="text-2xl font-bold text-white mb-1">Formação Académica & Certificações</h2>
-            <p data-i18n="certs_sub" class="text-slate-400 text-xs">Histórico cronológico com datas exatas e competências desenvolvidas:</p>
+            <p data-i18n="certs_sub" class="text-slate-400 text-xs">Histórico cronológico detalhado com datas exatas e competências desenvolvidas:</p>
         </div>
         
         <div class="space-y-4">
-            <!-- ISTEC (Reingresso) -->
+            <!-- 1. Tokio School Lisboa -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-brandViolet relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
-                    <span class="text-brandViolet font-mono text-xs font-medium">Setembro de 2026 – Presente</span>
+                    <h3 class="text-base font-bold text-white">Tokio School Lisboa</h3>
+                    <span class="text-brandVioletLight font-mono text-xs font-medium">Fevereiro de 2026 – Presente</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Licenciatura em Engenharia Informática (Reingresso Oficial)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">Foco em arquitetura de computadores, matemática aplicada, algoritmos e estruturas de dados em C e C++.</p>
+                <p class="text-slate-200 text-xs font-semibold mb-1">Curso de Programação em Python, Inglês (B1, B2 e C1), Scrum & Empreendedorismo</p>
+                <p class="text-slate-400 text-xs leading-relaxed">• Foco Técnico: Programação Orientada a Objetos (POO), Estruturas de Dados, Módulos, Automação de Processos e Manipulação de Ficheiros. Em preparação ativa para a certificação internacional PCAP™ (Certified Associate in Python Programming).</p>
             </div>
 
-            <!-- Tokio School -->
+            <!-- 2. ISTEC (Reingresso) -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-purple-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">Tokio School Lisboa</h3>
-                    <span class="text-purple-400 font-mono text-xs font-medium">Fevereiro de 2026 – Presente</span>
+                    <h3 class="text-base font-bold text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
+                    <span class="text-purple-400 font-mono text-xs font-medium">Setembro de 2026 – Presente</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Curso de Programação em Python, Inglês (B1/B2/C1), Scrum & Empreendedorismo</p>
-                <p class="text-slate-400 text-xs leading-relaxed">Programação Orientada a Objetos, Estruturas de Dados, Flask APIs, SQLite e preparação ativa para o exame oficial PCAP™.</p>
+                <p class="text-slate-200 text-xs font-semibold mb-1">Licenciatura em Engenharia Informática (Reingresso Oficial)</p>
+                <p class="text-slate-400 text-xs leading-relaxed">• Engenharia & Fundamentos: Consolidação do grau superior com foco em arquitetura de computadores, matemática aplicada, algoritmos e desenvolvimento em C e C++.</p>
             </div>
 
-            <!-- C-Academy / CNCS -->
+            <!-- 3. C-Academy / CNCS -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-blue-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
                     <h3 class="text-base font-bold text-white">Programa C-Academy / CNCS (210 Horas)</h3>
                     <span class="text-blue-400 font-mono text-xs font-medium">2025 – 2026</span>
                 </div>
                 <p class="text-slate-200 text-xs font-semibold mb-1">Formação Especializada em Cibersegurança (FCUL, IPV, IPP)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">Módulos universitários de PenTesting, Segurança de Redes (Wireshark/Firewalls), Segurança de Sistemas (Linux/Windows) e Fundamentos de Redes.</p>
+                <p class="text-slate-400 text-xs leading-relaxed">• Módulos de nível universitário: Segurança de Redes, Segurança de Sistemas, Ethical Hacking & Penetration Testing, e Fundamentos de Redes de Computadores.</p>
             </div>
 
-            <!-- ISTEC (Primeira Frequência) -->
+            <!-- 4. ISTEC (2013-2015) -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-slate-600 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
                     <h3 class="text-base font-bold text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
                     <span class="text-slate-400 font-mono text-xs font-medium">2013 – 2015</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Frequência da Licenciatura em Engenharia Informática (1º e 2º Anos)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">Conclusão de disciplinas fundamentais, lógica de programação, algoritmos e arquitetura de computadores.</p>
+                <p class="text-slate-200 text-xs font-semibold mb-1">Frequência Universitária em Engenharia Informática (1º e 2º Anos)</p>
+                <p class="text-slate-400 text-xs leading-relaxed">• Base Conceitual & C: Conclusão de disciplinas fundamentais incluindo Programação em C, lógica de programação, algoritmos, arquitetura de computadores e sistemas de informação.</p>
             </div>
 
-            <!-- Escola NHK -->
+            <!-- 5. Escola NHK -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-slate-700 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
                     <h3 class="text-base font-bold text-white">Escola NHK Formações</h3>
                     <span class="text-slate-400 font-mono text-xs font-medium">Concluído em 2011</span>
                 </div>
                 <p class="text-slate-200 text-xs font-semibold mb-1">Curso Prático de Redes e Hardware</p>
-                <p class="text-slate-400 text-xs leading-relaxed">Montagem e manutenção de sistemas, arquitetura de hardware e infraestruturas físicas de rede.</p>
+                <p class="text-slate-400 text-xs leading-relaxed">• Infraestrutura Física: Montagem e manutenção de equipamentos, arquitetura de computadores e fundamentos de redes de comunicação.</p>
             </div>
 
-            <!-- Secundária -->
+            <!-- 6. Secundária -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-slate-800 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
                     <h3 class="text-base font-bold text-white">Escola Secundária de Sacavém</h3>
                     <span class="text-slate-400 font-mono text-xs font-medium">Concluído em 2010</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Ensino Secundário — Ciências e Tecnologia</p>
-                <p class="text-slate-400 text-xs leading-relaxed">Formação base estruturada em Matemática, Física e Ciências Exatas.</p>
+                <p class="text-slate-200 text-xs font-semibold mb-1">Ensino Secundário (10º, 11º e 12º Anos)</p>
+                <p class="text-slate-400 text-xs leading-relaxed">• Ciências e Tecnologia: Formação secundária focada em matemática, física e ciências exatas.</p>
             </div>
         </div>
     </section>
@@ -367,20 +367,20 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                 <div>
-                    <span class="text-xs font-mono font-bold text-brandViolet uppercase tracking-wider">Projeto Web / SecOps</span>
+                    <span class="text-xs font-mono font-bold text-brandVioletLight uppercase tracking-wider">Projeto Web / SecOps</span>
                     <h3 class="text-lg font-bold text-white mt-2 mb-2">VECTRA8 HUB</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-6">Plataforma utilitária com Link Integrity Verifier, Speed Tester e Message Encryptor (ROT13, Base64, Hex).</p>
                 </div>
-                <a href="https://vectra8.tech" target="_blank" class="text-brandViolet text-xs font-semibold flex items-center gap-1 hover:underline">Visitar vectra8.tech <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+                <a href="https://vectra8.tech" target="_blank" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">Visitar vectra8.tech <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
             </div>
 
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                 <div>
-                    <span class="text-xs font-mono font-bold text-brandViolet uppercase tracking-wider">Landing Page / Business</span>
+                    <span class="text-xs font-mono font-bold text-brandVioletLight uppercase tracking-wider">Landing Page / Business</span>
                     <h3 class="text-lg font-bold text-white mt-2 mb-2">LILIMPA</h3>
                     <p class="text-slate-400 text-xs leading-relaxed mb-6">Plataforma digital para serviços de limpeza com calculadora dinâmica de orçamentos e otimização UX/UI.</p>
                 </div>
-                <a href="https://lilimpa.pt" target="_blank" class="text-brandViolet text-xs font-semibold flex items-center gap-1 hover:underline">Visitar lilimpa.pt <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+                <a href="https://lilimpa.pt" target="_blank" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">Visitar lilimpa.pt <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
             </div>
 
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
@@ -398,12 +398,12 @@
     <footer id="contacto" class="py-16 border-t border-slate-800/80 glass-card mt-20 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div class="space-y-3">
-                <h3 class="text-xl font-bold text-white font-mono">jfdias<span class="text-brandViolet">.pt</span></h3>
-                <p class="text-brandViolet text-xs font-medium">Python & IA Automation Developer | Cybersecurity Practitioner</p>
+                <h3 class="text-xl font-bold text-white font-mono lowercase">jfdias<span class="text-brandVioletLight">.pt</span></h3>
+                <p class="text-brandVioletLight text-xs font-medium">Python & IA Automation Developer | Cybersecurity Practitioner</p>
                 <p class="text-slate-400 text-xs">Sacavém, Loures - Portugal</p>
                 <div class="space-y-1 text-slate-300 text-xs pt-2">
-                    <p>📧 Email: <a href="mailto:jonathandias.info@gmail.com" class="hover:text-brandViolet transition">jonathandias.info@gmail.com</a></p>
-                    <p>📱 WhatsApp: <a href="https://wa.me/351964505531" target="_blank" class="hover:text-brandViolet transition">+351 964 505 531</a></p>
+                    <p>📧 Email: <a href="mailto:jonathandias.info@gmail.com" class="hover:text-brandVioletLight transition">jonathandias.info@gmail.com</a></p>
+                    <p>📱 WhatsApp: <a href="https://wa.me/351964505531" target="_blank" class="hover:text-brandVioletLight transition">+351 964 505 531</a></p>
                 </div>
             </div>
 
@@ -417,7 +417,7 @@
                 </a>
 
                 <a href="https://github.com/nanndox" target="_blank" class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-brandViolet transition flex items-center gap-3">
-                    <i data-lucide="github" class="w-5 h-5 text-brandViolet"></i>
+                    <i data-lucide="github" class="w-5 h-5 text-brandVioletLight"></i>
                     <div>
                         <p class="text-white font-semibold text-xs">GitHub</p>
                         <p class="text-slate-400 text-[10px]">@nanndox</p>
@@ -425,7 +425,7 @@
                 </a>
 
                 <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-brandBlue transition flex items-center gap-3">
-                    <i data-lucide="linkedin" class="w-5 h-5 text-brandBlue"></i>
+                    <i data-lucide="linkedin" class="w-5 h-5 text-blue-400"></i>
                     <div>
                         <p class="text-white font-semibold text-xs">LinkedIn</p>
                         <p class="text-slate-400 text-[10px]">@ndxconecta</p>
@@ -465,7 +465,7 @@
                 timeline_2026: "Reingresso na Licenciatura em Engenharia Informática no ISTEC.",
                 credly_title: "Espelho Oficial Credly", credly_sub: "Badges internacionais validadas pela Cisco Networking Academy & OpenEDG Python Institute.",
                 credly_btn: "Perfil no Credly", badge_validate: "Validar Badge", certs_title: "Formação Académica & Certificações",
-                certs_sub: "Histórico cronológico com datas exatas e competências desenvolvidas:", port_title: "Portfólio & Laboratórios",
+                certs_sub: "Histórico cronológico detalhado com datas exatas e competências desenvolvidas:", port_title: "Portfólio & Laboratórios",
                 port_sub: "Projetos de software e simulações técnicas de cibersegurança."
             },
             en: {
@@ -490,7 +490,7 @@
                 timeline_2026: "Official return to Computer Engineering at ISTEC.",
                 credly_title: "Official Credly Mirror", credly_sub: "International badges validated by Cisco Networking Academy & OpenEDG Python Institute.",
                 credly_btn: "Credly Profile", badge_validate: "Validate Badge", certs_title: "Education & Certifications",
-                certs_sub: "Chronological history with exact dates and competencies:", port_title: "Portfolio & Labs",
+                certs_sub: "Detailed chronological history with exact dates and competencies:", port_title: "Portfolio & Labs",
                 port_sub: "Software projects and technical cybersecurity labs."
             }
         };
@@ -517,9 +517,9 @@
             });
 
             navLinks.forEach(link => {
-                link.classList.remove('text-brandViolet');
+                link.classList.remove('text-brandVioletLight');
                 if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-brandViolet');
+                    link.classList.add('text-brandVioletLight');
                 }
             });
         });
