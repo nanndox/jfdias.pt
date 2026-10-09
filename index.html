@@ -8,17 +8,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
                     colors: {
-                        brandDark: '#060911',
-                        brandCard: '#0d1322',
+                        brandDark: '#050811',
+                        brandCard: '#0c1222',
                         brandViolet: '#7c3aed',
                         brandVioletLight: '#a78bfa',
                         brandBlue: '#2563eb',
-                        brandBlueDark: '#1e3a8a',
+                        brandBlueLight: '#60a5fa',
+                        brandEmerald: '#10b981',
                     }
                 }
             }
@@ -26,39 +36,45 @@
     </script>
     <style>
         .bg-custom {
-            background-color: #060911;
+            background-color: #050811;
             background-image: 
-                radial-gradient(circle at 50% -20%, rgba(124, 58, 237, 0.18) 0%, transparent 60%),
-                radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 50% -10%, rgba(124, 58, 237, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 85% 75%, rgba(37, 99, 235, 0.1) 0%, transparent 45%);
             background-attachment: fixed;
         }
         .cyber-grid {
-            background-size: 40px 40px;
+            background-size: 36px 36px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         }
         .glass-card {
-            background: rgba(13, 19, 34, 0.7);
+            background: rgba(12, 18, 34, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(124, 58, 237, 0.18);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            border-color: rgba(124, 58, 237, 0.4);
+            border-color: rgba(167, 139, 250, 0.45);
+            box-shadow: 0 0 25px rgba(124, 58, 237, 0.15);
+            transform: translateY(-2px);
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
         }
     </style>
 </head>
-<body class="bg-brandDark text-slate-300 bg-custom cyber-grid font-sans antialiased min-h-screen relative overflow-x-hidden">
+<body class="bg-brandDark text-slate-300 bg-custom cyber-grid font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-brandViolet selection:text-white">
 
-    <!-- Navbar Limpa (Sem botão de gestão) -->
+    <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 glass-card border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <a href="#home" class="text-2xl font-bold tracking-tight text-white font-mono lowercase">jfdias<span class="text-brandVioletLight">.pt</span></a>
+                <a href="#home" class="text-2xl font-bold tracking-tighter text-white font-mono lowercase text-glow">jfdias<span class="text-brandVioletLight">.pt</span></a>
             </div>
             
-            <div class="hidden lg:flex gap-8 font-medium text-xs uppercase tracking-widest text-slate-400" id="nav-menu">
+            <div class="hidden lg:flex gap-7 font-mono font-medium text-xs tracking-wider text-slate-400" id="nav-menu">
                 <a href="#home" data-i18n="nav_home" class="nav-link text-brandVioletLight transition hover:text-white">Início</a>
                 <a href="#servicos" data-i18n="nav_services" class="nav-link hover:text-brandVioletLight transition">Serviços</a>
                 <a href="#bio" data-i18n="nav_bio" class="nav-link hover:text-brandVioletLight transition">Sobre Mim</a>
@@ -69,13 +85,14 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <!-- Seletor de Idioma -->
+                <!-- Seletor de Idioma Ampliado -->
                 <div class="relative inline-block text-left">
-                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-900 border border-brandViolet/30 text-slate-200 text-xs font-semibold rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer hover:bg-slate-800 transition">
+                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-slate-900 border border-brandViolet/40 text-slate-200 text-xs font-mono font-semibold rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer hover:bg-slate-800 transition">
                         <option value="pt">🇵🇹 PT</option>
                         <option value="en">🇬🇧 EN</option>
                         <option value="es">🇪🇸 ES</option>
                         <option value="fr">🇫🇷 FR</option>
+                        <option value="de">🇩🇪 DE</option>
                     </select>
                 </div>
 
@@ -93,15 +110,16 @@
     <section id="home" class="pt-44 pb-24 px-6 max-w-5xl mx-auto flex flex-col items-center justify-center text-center relative z-10">
         <div class="space-y-6 w-full flex flex-col items-center">
             
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brandViolet/10 border border-brandViolet/30 text-brandVioletLight text-xs font-mono font-medium">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Security-First Software Architecture
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-brandViolet/30 text-brandVioletLight text-xs font-mono">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span data-i18n="hero_badge">Security-First Software Architecture</span>
             </div>
 
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
                 Jonathan Fernando Dias
             </h1>
 
-            <h2 class="text-lg sm:text-2xl md:text-2xl text-purple-300 font-medium max-w-3xl">
+            <h2 class="text-lg sm:text-2xl text-purple-300 font-mono font-medium max-w-3xl">
                 Python & IA Automation Developer | Cybersecurity Practitioner
             </h2>
 
@@ -109,18 +127,18 @@
                 Desenvolvo sistemas robustos em Python, automações com IA e arquiteturas de redes orientadas à segurança defensiva e offensive hacking.
             </p>
             
-            <div class="flex flex-wrap items-center justify-center gap-4 pt-6 w-full">
-                <a href="#portfolio" data-i18n="btn_portfolio" class="bg-brandViolet text-white font-semibold px-6 py-3 rounded-xl hover:bg-violet-700 transition shadow-lg shadow-brandViolet/20 text-sm">Ver Portfólio & Labs</a>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-6 w-full font-mono text-xs">
+                <a href="#portfolio" data-i18n="btn_portfolio" class="bg-brandViolet text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-violet-700 transition shadow-lg shadow-brandViolet/20">Ver Portfólio & Labs</a>
                 
-                <a href="https://wa.me/351964505531" target="_blank" class="glass-card px-6 py-3 rounded-xl hover:border-emerald-500 transition text-emerald-400 text-sm font-medium flex items-center gap-2">
-                    <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp Directo
+                <a href="https://wa.me/351964505531" target="_blank" class="glass-card px-6 py-3.5 rounded-xl hover:border-emerald-500 transition text-emerald-400 font-medium flex items-center gap-2">
+                    <i data-lucide="message-square" class="w-4 h-4"></i> <span data-i18n="btn_wa">WhatsApp Directo</span>
                 </a>
 
-                <a href="https://github.com/nanndox" target="_blank" class="glass-card px-6 py-3 rounded-xl hover:border-brandViolet transition text-slate-200 text-sm flex items-center gap-2">
+                <a href="https://github.com/nanndox" target="_blank" class="glass-card px-6 py-3.5 rounded-xl hover:border-brandViolet transition text-slate-200 flex items-center gap-2">
                     <i data-lucide="github" class="w-4 h-4 text-brandVioletLight"></i> GitHub / nanndox
                 </a>
 
-                <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="glass-card px-6 py-3 rounded-xl hover:border-brandBlue transition text-slate-200 text-sm flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/ndxconecta/" target="_blank" class="glass-card px-6 py-3.5 rounded-xl hover:border-brandBlue transition text-slate-200 flex items-center gap-2">
                     <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> LinkedIn / ndxconecta
                 </a>
             </div>
@@ -130,39 +148,39 @@
 
     <!-- Serviços -->
     <section id="servicos" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-        <h2 data-i18n="services_title" class="text-2xl font-bold text-center text-white mb-2">Serviços & Especializações</h2>
+        <h2 data-i18n="services_title" class="text-2xl font-bold font-mono text-center text-white mb-2">Serviços & Especializações</h2>
         <p data-i18n="services_sub" class="text-slate-400 text-center text-sm max-w-xl mx-auto mb-12">Soluções digitais integradas focadas em desempenho, escalabilidade e cibersegurança.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass-card p-6 rounded-2xl transition group">
+            <div class="glass-card p-6 rounded-2xl group">
                 <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-blue-400 mb-4">
                     <i data-lucide="code-2" class="w-5 h-5"></i>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">Web & App Development</h3>
+                <h3 data-i18n="srv_1_title" class="text-base font-bold font-mono text-white mb-2">Web & App Development</h3>
                 <p data-i18n="srv_1_desc" class="text-slate-400 text-xs leading-relaxed">Criação de websites modernos, aplicações interativas e arquiteturas API RESTful com Flask, Tailwind CSS e SQLite.</p>
             </div>
 
-            <div class="glass-card p-6 rounded-2xl transition group">
+            <div class="glass-card p-6 rounded-2xl group">
                 <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center text-brandVioletLight mb-4">
                     <i data-lucide="shield" class="w-5 h-5"></i>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">Custom Software & Security</h3>
+                <h3 data-i18n="srv_2_title" class="text-base font-bold font-mono text-white mb-2">Custom Software & Security</h3>
                 <p data-i18n="srv_2_desc" class="text-slate-400 text-xs leading-relaxed">Desenvolvimento sob medida com abordagem Security-First, testes de penetração e hardening de infraestruturas.</p>
             </div>
 
-            <div class="glass-card p-6 rounded-2xl transition group">
+            <div class="glass-card p-6 rounded-2xl group">
                 <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-400 mb-4">
                     <i data-lucide="cpu" class="w-5 h-5"></i>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">Automações Python & n8n</h3>
+                <h3 data-i18n="srv_3_title" class="text-base font-bold font-mono text-white mb-2">Automações Python & n8n</h3>
                 <p data-i18n="srv_3_desc" class="text-slate-400 text-xs leading-relaxed">Otimização e automação de processos complexos através de scripts Python avançados, n8n e agentes de IA.</p>
             </div>
 
-            <div class="glass-card p-6 rounded-2xl transition group">
+            <div class="glass-card p-6 rounded-2xl group">
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-400 mb-4">
                     <i data-lucide="layers" class="w-5 h-5"></i>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">Design & Gestão Digital</h3>
+                <h3 data-i18n="srv_4_title" class="text-base font-bold font-mono text-white mb-2">Design & Gestão Digital</h3>
                 <p data-i18n="srv_4_desc" class="text-slate-400 text-xs leading-relaxed">Design gráfico para redes sociais, flyers institucionais e gestão estratégica de presença digital.</p>
             </div>
         </div>
@@ -171,8 +189,8 @@
     <!-- Bio Dedicada -->
     <section id="bio" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60 relative z-10">
         <div class="glass-card p-8 md:p-12 rounded-3xl">
-            <h2 data-i18n="bio_title" class="text-2xl font-bold text-white mb-1">Sobre Mim</h2>
-            <h3 data-i18n="bio_subtitle" class="text-base text-brandVioletLight mb-6">Do Código à Cibersegurança</h3>
+            <h2 data-i18n="bio_title" class="text-2xl font-bold font-mono text-white mb-1">Sobre Mim</h2>
+            <h3 data-i18n="bio_subtitle" class="text-sm font-mono text-brandVioletLight mb-6">Do Código à Cibersegurança</h3>
             
             <blockquote data-i18n="bio_quote" class="border-l-2 border-brandViolet pl-4 italic text-slate-300 text-sm md:text-base mb-8">
                 "A tecnologia é a minha vocação reconquistada. O meu percurso combina a maturidade da vida real, a paixão pela resolução de problemas e o compromisso de construir software seguro, rápido e eficiente."
@@ -180,7 +198,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
-                    <h4 data-i18n="bio_mission_title" class="text-base font-semibold text-white flex items-center gap-2">
+                    <h4 data-i18n="bio_mission_title" class="text-base font-semibold font-mono text-white flex items-center gap-2">
                         <i data-lucide="target" class="text-brandVioletLight w-4 h-4"></i> A Minha Missão & Visão
                     </h4>
                     <p data-i18n="bio_p1">
@@ -192,7 +210,7 @@
                 </div>
 
                 <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
-                    <h4 data-i18n="bio_journey_title" class="text-base font-semibold text-white flex items-center gap-2">
+                    <h4 data-i18n="bio_journey_title" class="text-base font-semibold font-mono text-white flex items-center gap-2">
                         <i data-lucide="compass" class="text-brandVioletLight w-4 h-4"></i> A Minha Jornada
                     </h4>
                     <p data-i18n="bio_journey_intro" class="text-xs text-slate-400">
@@ -223,12 +241,12 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
             <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandViolet/10 border border-brandViolet/30 text-brandVioletLight text-xs font-mono mb-2">
-                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Credenciais Verificadas
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> <span data-i18n="credly_badge_tag">Credenciais Verificadas</span>
                 </div>
-                <h2 data-i18n="credly_title" class="text-2xl font-bold text-white">Espelho Oficial Credly</h2>
+                <h2 data-i18n="credly_title" class="text-2xl font-bold font-mono text-white">Espelho Oficial Credly</h2>
                 <p data-i18n="credly_sub" class="text-slate-400 text-xs">Badges internacionais validadas pela Cisco Networking Academy & OpenEDG Python Institute.</p>
             </div>
-            <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" data-i18n="credly_btn" class="bg-slate-900 border border-brandViolet/40 text-brandVioletLight text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-brandViolet hover:text-white transition flex items-center gap-2">
+            <a href="https://www.credly.com/users/jonathan-fernando-dias/badges/credly" target="_blank" data-i18n="credly_btn" class="bg-slate-900 border border-brandViolet/40 text-brandVioletLight text-xs font-mono font-semibold px-4 py-2.5 rounded-xl hover:bg-brandViolet hover:text-white transition flex items-center gap-2">
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Perfil no Credly
             </a>
         </div>
@@ -241,12 +259,12 @@
                         <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Cisco / OpenEDG</span>
                         <i data-lucide="terminal" class="text-brandVioletLight w-5 h-5"></i>
                     </div>
-                    <h3 class="text-base font-bold text-white mb-2">Python Essentials 1</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                    <h3 class="text-base font-bold font-mono text-white mb-2">Python Essentials 1</h3>
+                    <p data-i18n="badge_1_desc" class="text-slate-400 text-xs leading-relaxed mb-4">
                         Fundamentos da programação em Python, controlo de fluxo, algoritmos e funções.
                     </p>
                 </div>
-                <a href="https://www.credly.com/earner/earned/badge/eb85fa9a-a594-4944-8974-dfb82bf9ee54" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">
+                <a href="https://www.credly.com/earner/earned/badge/eb85fa9a-a594-4944-8974-dfb82bf9ee54" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-mono font-semibold flex items-center gap-1 hover:underline">
                     Validar Badge <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -258,12 +276,12 @@
                         <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Cisco / OpenEDG</span>
                         <i data-lucide="code" class="text-brandVioletLight w-5 h-5"></i>
                     </div>
-                    <h3 class="text-base font-bold text-white mb-2">Python Essentials 2</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                    <h3 class="text-base font-bold font-mono text-white mb-2">Python Essentials 2</h3>
+                    <p data-i18n="badge_2_desc" class="text-slate-400 text-xs leading-relaxed mb-4">
                         Programação Orientada a Objetos (POO), excepções, módulos e preparação PCAP™.
                     </p>
                 </div>
-                <a href="https://www.credly.com/earner/earned/badge/7ce76c0c-0c76-445d-af2f-3df85e97ae5b" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">
+                <a href="https://www.credly.com/earner/earned/badge/7ce76c0c-0c76-445d-af2f-3df85e97ae5b" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-mono font-semibold flex items-center gap-1 hover:underline">
                     Validar Badge <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -275,22 +293,22 @@
                         <span class="px-2 py-1 rounded bg-slate-900 text-slate-300 text-xs font-mono">Cisco NetAcad</span>
                         <i data-lucide="shield-alert" class="text-brandVioletLight w-5 h-5"></i>
                     </div>
-                    <h3 class="text-base font-bold text-white mb-2">Junior Cybersecurity Analyst</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                    <h3 class="text-base font-bold font-mono text-white mb-2">Junior Cybersecurity Analyst</h3>
+                    <p data-i18n="badge_3_desc" class="text-slate-400 text-xs leading-relaxed mb-4">
                         Operações SOC, análise de tráfego, mitigação de ameaças e resposta a incidentes.
                     </p>
                 </div>
-                <a href="https://www.credly.com/earner/earned/badge/a9649735-a650-4581-ae14-d49b9497b053" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">
+                <a href="https://www.credly.com/earner/earned/badge/a9649735-a650-4581-ae14-d49b9497b053" target="_blank" data-i18n="badge_validate" class="text-brandVioletLight text-xs font-mono font-semibold flex items-center gap-1 hover:underline">
                     Validar Badge <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Formação Académica com Datas Exatas do teu Currículo -->
+    <!-- Formação Académica com Datas Exatas -->
     <section id="certificacoes" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60 relative z-10">
         <div class="mb-10">
-            <h2 data-i18n="certs_title" class="text-2xl font-bold text-white mb-1">Formação Académica & Certificações</h2>
+            <h2 data-i18n="certs_title" class="text-2xl font-bold font-mono text-white mb-1">Formação Académica & Certificações</h2>
             <p data-i18n="certs_sub" class="text-slate-400 text-xs">Histórico cronológico detalhado com datas exatas e competências desenvolvidas:</p>
         </div>
         
@@ -298,61 +316,61 @@
             <!-- 1. Tokio School Lisboa -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-brandViolet relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">Tokio School Lisboa</h3>
-                    <span class="text-brandVioletLight font-mono text-xs font-medium">Fevereiro de 2026 – Presente</span>
+                    <h3 class="text-base font-bold font-mono text-white">Tokio School Lisboa</h3>
+                    <span data-i18n="edu_1_date" class="text-brandVioletLight font-mono text-xs font-medium">Fevereiro de 2026 – Presente</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Curso de Programação em Python, Inglês (B1, B2 e C1), Scrum & Empreendedorismo</p>
-                <p class="text-slate-400 text-xs leading-relaxed">• Foco Técnico: Programação Orientada a Objetos (POO), Estruturas de Dados, Módulos, Automação de Processos e Manipulação de Ficheiros. Em preparação ativa para a certificação internacional PCAP™ (Certified Associate in Python Programming).</p>
+                <p data-i18n="edu_1_title" class="text-slate-200 text-xs font-semibold mb-1">Curso de Programação em Python, Inglês (B1, B2 e C1), Scrum & Empreendedorismo</p>
+                <p data-i18n="edu_1_desc" class="text-slate-400 text-xs leading-relaxed">• Foco Técnico: Programação Orientada a Objetos (POO), Estruturas de Dados, Módulos, Automação de Processos e Manipulação de Ficheiros. Em preparação ativa para a certificação internacional PCAP™ (Certified Associate in Python Programming).</p>
             </div>
 
             <!-- 2. ISTEC (Reingresso) -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-purple-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
-                    <span class="text-purple-400 font-mono text-xs font-medium">Setembro de 2026 – Presente</span>
+                    <h3 class="text-base font-bold font-mono text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
+                    <span data-i18n="edu_2_date" class="text-purple-400 font-mono text-xs font-medium">Setembro de 2026 – Presente</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Licenciatura em Engenharia Informática (Reingresso Oficial)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">• Engenharia & Fundamentos: Consolidação do grau superior com foco em arquitetura de computadores, matemática aplicada, algoritmos e desenvolvimento em C e C++.</p>
+                <p data-i18n="edu_2_title" class="text-slate-200 text-xs font-semibold mb-1">Licenciatura em Engenharia Informática (Reingresso Oficial)</p>
+                <p data-i18n="edu_2_desc" class="text-slate-400 text-xs leading-relaxed">• Engenharia & Fundamentos: Consolidação do grau superior com foco em arquitetura de computadores, matemática aplicada, algoritmos e desenvolvimento em C e C++.</p>
             </div>
 
             <!-- 3. C-Academy / CNCS -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-blue-500 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">Programa C-Academy / CNCS (210 Horas)</h3>
+                    <h3 class="text-base font-bold font-mono text-white">Programa C-Academy / CNCS (210 Horas)</h3>
                     <span class="text-blue-400 font-mono text-xs font-medium">2025 – 2026</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Formação Especializada em Cibersegurança (FCUL, IPV, IPP)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">• Módulos de nível universitário: Segurança de Redes, Segurança de Sistemas, Ethical Hacking & Penetration Testing, e Fundamentos de Redes de Computadores.</p>
+                <p data-i18n="edu_3_title" class="text-slate-200 text-xs font-semibold mb-1">Formação Especializada em Cibersegurança (FCUL, IPV, IPP)</p>
+                <p data-i18n="edu_3_desc" class="text-slate-400 text-xs leading-relaxed">• Módulos de nível universitário: Segurança de Redes, Segurança de Sistemas, Ethical Hacking & Penetration Testing, e Fundamentos de Redes de Computadores.</p>
             </div>
 
             <!-- 4. ISTEC (2013-2015) -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-slate-600 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
+                    <h3 class="text-base font-bold font-mono text-white">ISTEC — Instituto Superior de Tecnologias Avançadas</h3>
                     <span class="text-slate-400 font-mono text-xs font-medium">2013 – 2015</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Frequência Universitária em Engenharia Informática (1º e 2º Anos)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">• Base Conceitual & C: Conclusão de disciplinas fundamentais incluindo Programação em C, lógica de programação, algoritmos, arquitetura de computadores e sistemas de informação.</p>
+                <p data-i18n="edu_4_title" class="text-slate-200 text-xs font-semibold mb-1">Frequência Universitária em Engenharia Informática (1º e 2º Anos)</p>
+                <p data-i18n="edu_4_desc" class="text-slate-400 text-xs leading-relaxed">• Base Conceitual & C: Conclusão de disciplinas fundamentais incluindo Programação em C, lógica de programação, algoritmos, arquitetura de computadores e sistemas de informação.</p>
             </div>
 
             <!-- 5. Escola NHK -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-slate-700 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">Escola NHK Formações</h3>
-                    <span class="text-slate-400 font-mono text-xs font-medium">Concluído em 2011</span>
+                    <h3 class="text-base font-bold font-mono text-white">Escola NHK Formações</h3>
+                    <span data-i18n="edu_5_date" class="text-slate-400 font-mono text-xs font-medium">Concluído em 2011</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Curso Prático de Redes e Hardware</p>
-                <p class="text-slate-400 text-xs leading-relaxed">• Infraestrutura Física: Montagem e manutenção de equipamentos, arquitetura de computadores e fundamentos de redes de comunicação.</p>
+                <p data-i18n="edu_5_title" class="text-slate-200 text-xs font-semibold mb-1">Curso Prático de Redes e Hardware</p>
+                <p data-i18n="edu_5_desc" class="text-slate-400 text-xs leading-relaxed">• Infraestrutura Física: Montagem e manutenção de equipamentos, arquitetura de computadores e fundamentos de redes de comunicação.</p>
             </div>
 
             <!-- 6. Secundária -->
             <div class="glass-card p-6 rounded-2xl border-l-2 border-l-slate-800 relative">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-2 gap-1">
-                    <h3 class="text-base font-bold text-white">Escola Secundária de Sacavém</h3>
-                    <span class="text-slate-400 font-mono text-xs font-medium">Concluído em 2010</span>
+                    <h3 class="text-base font-bold font-mono text-white">Escola Secundária de Sacavém</h3>
+                    <span data-i18n="edu_6_date" class="text-slate-400 font-mono text-xs font-medium">Concluído em 2010</span>
                 </div>
-                <p class="text-slate-200 text-xs font-semibold mb-1">Ensino Secundário (10º, 11º e 12º Anos)</p>
-                <p class="text-slate-400 text-xs leading-relaxed">• Ciências e Tecnologia: Formação secundária focada em matemática, física e ciências exatas.</p>
+                <p data-i18n="edu_6_title" class="text-slate-200 text-xs font-semibold mb-1">Ensino Secundário (10º, 11º e 12º Anos)</p>
+                <p data-i18n="edu_6_desc" class="text-slate-400 text-xs leading-relaxed">• Ciências e Tecnologia: Formação secundária focada em matemática, física e ciências exatas.</p>
             </div>
         </div>
     </section>
@@ -360,7 +378,7 @@
     <!-- Portfólio & Labs -->
     <section id="portfolio" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-800/60 relative z-10">
         <div class="mb-10">
-            <h2 data-i18n="port_title" class="text-2xl font-bold text-white mb-1">Portfólio & Laboratórios</h2>
+            <h2 data-i18n="port_title" class="text-2xl font-bold font-mono text-white mb-1">Portfólio & Laboratórios</h2>
             <p data-i18n="port_sub" class="text-slate-400 text-xs">Projetos de software e simulações técnicas de cibersegurança.</p>
         </div>
 
@@ -368,28 +386,28 @@
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                 <div>
                     <span class="text-xs font-mono font-bold text-brandVioletLight uppercase tracking-wider">Projeto Web / SecOps</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-2">VECTRA8 HUB</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Plataforma utilitária com Link Integrity Verifier, Speed Tester e Message Encryptor (ROT13, Base64, Hex).</p>
+                    <h3 class="text-lg font-bold font-mono text-white mt-2 mb-2">VECTRA8 HUB</h3>
+                    <p data-i18n="port_1_desc" class="text-slate-400 text-xs leading-relaxed mb-6">Plataforma utilitária com Link Integrity Verifier, Speed Tester e Message Encryptor (ROT13, Base64, Hex).</p>
                 </div>
-                <a href="https://vectra8.tech" target="_blank" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">Visitar vectra8.tech <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+                <a href="https://vectra8.tech" target="_blank" data-i18n="port_visit_vectra" class="text-brandVioletLight text-xs font-mono font-semibold flex items-center gap-1 hover:underline">Visitar vectra8.tech <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
             </div>
 
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                 <div>
                     <span class="text-xs font-mono font-bold text-brandVioletLight uppercase tracking-wider">Landing Page / Business</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-2">LILIMPA</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Plataforma digital para serviços de limpeza com calculadora dinâmica de orçamentos e otimização UX/UI.</p>
+                    <h3 class="text-lg font-bold font-mono text-white mt-2 mb-2">LILIMPA</h3>
+                    <p data-i18n="port_2_desc" class="text-slate-400 text-xs leading-relaxed mb-6">Plataforma digital para serviços de limpeza com calculadora dinâmica de orçamentos e otimização UX/UI.</p>
                 </div>
-                <a href="https://lilimpa.pt" target="_blank" class="text-brandVioletLight text-xs font-semibold flex items-center gap-1 hover:underline">Visitar lilimpa.pt <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
+                <a href="https://lilimpa.pt" target="_blank" data-i18n="port_visit_lilimpa" class="text-brandVioletLight text-xs font-mono font-semibold flex items-center gap-1 hover:underline">Visitar lilimpa.pt <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>
             </div>
 
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
                 <div>
                     <span class="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider">Lab Cibersegurança / PenTest</span>
-                    <h3 class="text-lg font-bold text-white mt-2 mb-2">Network Recon & Hardening</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-6">Análise de tráfego com Wireshark, varredura de vulnerabilidades com Nmap e testes em ambiente Kali Linux.</p>
+                    <h3 class="text-lg font-bold font-mono text-white mt-2 mb-2">Network Recon & Hardening</h3>
+                    <p data-i18n="port_3_desc" class="text-slate-400 text-xs leading-relaxed mb-6">Análise de tráfego com Wireshark, varredura de vulnerabilidades com Nmap e testes em ambiente Kali Linux.</p>
                 </div>
-                <span class="text-slate-500 text-xs font-mono">Ambiente de Teste Prático C-Academy</span>
+                <span data-i18n="port_3_tag" class="text-slate-500 text-xs font-mono">Ambiente de Teste Prático C-Academy</span>
             </div>
         </div>
     </section>
@@ -398,8 +416,8 @@
     <footer id="contacto" class="py-16 border-t border-slate-800/80 glass-card mt-20 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div class="space-y-3">
-                <h3 class="text-xl font-bold text-white font-mono lowercase">jfdias<span class="text-brandVioletLight">.pt</span></h3>
-                <p class="text-brandVioletLight text-xs font-medium">Python & IA Automation Developer | Cybersecurity Practitioner</p>
+                <h3 class="text-xl font-bold text-white font-mono lowercase text-glow">jfdias<span class="text-brandVioletLight">.pt</span></h3>
+                <p class="text-brandVioletLight text-xs font-mono font-medium">Python & IA Automation Developer | Cybersecurity Practitioner</p>
                 <p class="text-slate-400 text-xs">Sacavém, Loures - Portugal</p>
                 <div class="space-y-1 text-slate-300 text-xs pt-2">
                     <p>📧 Email: <a href="mailto:jonathandias.info@gmail.com" class="hover:text-brandVioletLight transition">jonathandias.info@gmail.com</a></p>
@@ -407,12 +425,12 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap gap-4 md:justify-end">
+            <div class="flex flex-wrap gap-4 md:justify-end font-mono">
                 <a href="https://wa.me/351964505531" target="_blank" class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 transition flex items-center gap-3">
                     <i data-lucide="message-square" class="w-5 h-5 text-emerald-400"></i>
                     <div>
                         <p class="text-white font-semibold text-xs">WhatsApp</p>
-                        <p class="text-slate-400 text-[10px]">Contacto Directo</p>
+                        <p data-i18n="footer_wa_sub" class="text-slate-400 text-[10px]">Contacto Directo</p>
                     </div>
                 </a>
 
@@ -433,65 +451,285 @@
                 </a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-slate-800/40 text-center text-slate-500 text-xs font-mono">
+        <div data-i18n="footer_rights" class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-slate-800/40 text-center text-slate-500 text-xs font-mono">
             © 2026 jfdias.pt — Todos os direitos reservados.
         </div>
     </footer>
 
-    <!-- Script de Tradução Global & Scroll Ativo -->
+    <!-- Dicionário Multilíngue Completo (PT, EN, ES, FR, DE) -->
     <script>
         lucide.createIcons();
 
         const i18n = {
             pt: {
                 nav_home: "Início", nav_services: "Serviços", nav_bio: "Sobre Mim",
-                nav_credly: "Credly Badges", nav_certs: "Formação", nav_portfolio: "Portfólio", nav_contact: "Contacto",
+                nav_credly: "Credly Badges", nav_certs: "Formação", nav_portfolio: "Portfólio & Labs", nav_contact: "Contacto",
+                hero_badge: "Security-First Software Architecture",
                 hero_desc: "Desenvolvo sistemas robustos em Python, automações com IA e arquiteturas de redes orientadas à segurança defensiva e offensive hacking.",
-                btn_portfolio: "Ver Portfólio & Labs", services_title: "Serviços & Especializações",
+                btn_portfolio: "Ver Portfólio & Labs", btn_wa: "WhatsApp Directo",
+                services_title: "Serviços & Especializações",
                 services_sub: "Soluções digitais integradas focadas em desempenho, escalabilidade e cibersegurança.",
-                srv_1_desc: "Criação de websites modernos, aplicações interativas e arquiteturas API RESTful com Flask, Tailwind CSS e SQLite.",
-                srv_2_desc: "Desenvolvimento sob medida com abordagem Security-First, testes de penetração e hardening de infraestruturas.",
-                srv_3_desc: "Otimização e automação de processos complexos através de scripts Python avançados, n8n e agentes de IA.",
-                srv_4_desc: "Design gráfico para redes sociais, flyers institucionais e gestão estratégica de presença digital.",
+                srv_1_title: "Web & App Development", srv_1_desc: "Criação de websites modernos, aplicações interativas e arquiteturas API RESTful com Flask, Tailwind CSS e SQLite.",
+                srv_2_title: "Custom Software & Security", srv_2_desc: "Desenvolvimento sob medida com abordagem Security-First, testes de penetração e hardening de infraestruturas.",
+                srv_3_title: "Automações Python & n8n", srv_3_desc: "Otimização e automação de processos complexos através de scripts Python avançados, n8n e agentes de IA.",
+                srv_4_title: "Design & Gestão Digital", srv_4_desc: "Design gráfico para redes sociais, flyers institucionais e gestão estratégica de presença digital.",
                 bio_title: "Sobre Mim", bio_subtitle: "Do Código à Cibersegurança",
                 bio_quote: "\"A tecnologia é a minha vocação reconquistada. O meu percurso combina a maturidade da vida real, a paixão pela resolução de problemas e o compromisso de construir software seguro, rápido e eficiente.\"",
                 bio_mission_title: "A Minha Missão & Visão",
                 bio_p1: "Sou Desenvolvedor Python, Praticante de Cibersegurança e Estudante de Engenharia Informática no ISTEC, focado em desenhar soluções de software robustas com uma abordagem Security-First.",
-                bio_p2: "A minha trajetória profissional reflete resiliência, responsabilidade e uma capacidade contínua de evolução. Para mim, programar vai muito além da escrita de código: consiste em resolver problemas do mundo real e garantir a segurança da informação.",
+                bio_p2: "A minha trajetória profissional reflete resiliência, responsabilidade e uma capacidade contínua de evolução. Para mim, programar vai muito além da escrita de código: consiste em resolver problemas do mundo real, otimizar processos complexos e garantir a integridade e segurança da informação.",
                 bio_journey_title: "A Minha Jornada",
+                bio_journey_intro: "A minha paixão pela computação começou na juventude com a formação em redes e hardware, culminando na minha entrada na Licenciatura em Engenharia Informática no ISTEC.",
                 timeline_2015: "Pausa nos estudos para apoio familiar e consolidação profissional.",
                 timeline_2023: "Reativação intensiva do percurso técnico em Python e Cibersegurança.",
                 timeline_2025: "Tokio School (Python) & 210h de Cibersegurança (Programa C-Academy / CNCS).",
                 timeline_2026: "Reingresso na Licenciatura em Engenharia Informática no ISTEC.",
+                credly_badge_tag: "Credenciais Verificadas",
                 credly_title: "Espelho Oficial Credly", credly_sub: "Badges internacionais validadas pela Cisco Networking Academy & OpenEDG Python Institute.",
-                credly_btn: "Perfil no Credly", badge_validate: "Validar Badge", certs_title: "Formação Académica & Certificações",
-                certs_sub: "Histórico cronológico detalhado com datas exatas e competências desenvolvidas:", port_title: "Portfólio & Laboratórios",
-                port_sub: "Projetos de software e simulações técnicas de cibersegurança."
+                credly_btn: "Perfil no Credly",
+                badge_1_desc: "Fundamentos da programação em Python, controlo de fluxo, algoritmos e funções.",
+                badge_2_desc: "Programação Orientada a Objetos (POO), excepções, módulos e preparação PCAP™.",
+                badge_3_desc: "Operações SOC, análise de tráfego, mitigação de ameaças e resposta a incidentes.",
+                badge_validate: "Validar Badge",
+                certs_title: "Formação Académica & Certificações", certs_sub: "Histórico cronológico detalhado com datas exatas e competências desenvolvidas:",
+                edu_1_date: "Fevereiro de 2026 – Presente",
+                edu_1_title: "Curso de Programação em Python, Inglês (B1, B2 e C1), Scrum & Empreendedorismo",
+                edu_1_desc: "• Foco Técnico: Programação Orientada a Objetos (POO), Estruturas de Dados, Módulos, Automação de Processos e Manipulação de Ficheiros. Em preparação ativa para a certificação internacional PCAP™ (Certified Associate in Python Programming).",
+                edu_2_date: "Setembro de 2026 – Presente",
+                edu_2_title: "Licenciatura em Engenharia Informática (Reingresso Oficial)",
+                edu_2_desc: "• Engenharia & Fundamentos: Consolidação do grau superior com foco em arquitetura de computadores, matemática aplicada, algoritmos e desenvolvimento em C e C++.",
+                edu_3_title: "Formação Especializada em Cibersegurança (FCUL, IPV, IPP)",
+                edu_3_desc: "• Módulos de nível universitário: Segurança de Redes, Segurança de Sistemas, Ethical Hacking & Penetration Testing, e Fundamentos de Redes de Computadores.",
+                edu_4_title: "Frequência Universitária em Engenharia Informática (1º e 2º Anos)",
+                edu_4_desc: "• Base Conceitual & C: Conclusão de disciplinas fundamentais incluindo Programação em C, lógica de programação, algoritmos, arquitetura de computadores e sistemas de informação.",
+                edu_5_date: "Concluído em 2011", edu_5_title: "Curso Prático de Redes e Hardware",
+                edu_5_desc: "• Infraestrutura Física: Montagem e manutenção de equipamentos, arquitetura de computadores e fundamentos de redes de comunicação.",
+                edu_6_date: "Concluído em 2010", edu_6_title: "Ensino Secundário (10º, 11º e 12º Anos)",
+                edu_6_desc: "• Ciências e Tecnologia: Formação secundária focada em matemática, física e ciências exatas.",
+                port_title: "Portfólio & Laboratórios", port_sub: "Projetos de software e simulações técnicas de cibersegurança.",
+                port_1_desc: "Plataforma utilitária com Link Integrity Verifier, Speed Tester e Message Encryptor (ROT13, Base64, Hex).",
+                port_visit_vectra: "Visitar vectra8.tech",
+                port_2_desc: "Plataforma digital para serviços de limpeza com calculadora dinâmica de orçamentos e otimização UX/UI.",
+                port_visit_lilimpa: "Visitar lilimpa.pt",
+                port_3_desc: "Análise de tráfego com Wireshark, varredura de vulnerabilidades com Nmap e testes em ambiente Kali Linux.",
+                port_3_tag: "Ambiente de Teste Prático C-Academy",
+                footer_wa_sub: "Contacto Directo", footer_rights: "© 2026 jfdias.pt — Todos os direitos reservados."
             },
             en: {
                 nav_home: "Home", nav_services: "Services", nav_bio: "About Me",
-                nav_credly: "Credly Badges", nav_certs: "Education", nav_portfolio: "Portfolio", nav_contact: "Contact",
-                hero_desc: "I build robust Python systems, AI automations, and network architectures focused on defensive security and offensive hacking.",
-                btn_portfolio: "View Portfolio & Labs", services_title: "Services & Specializations",
+                nav_credly: "Credly Badges", nav_certs: "Education", nav_portfolio: "Portfolio & Labs", nav_contact: "Contact",
+                hero_badge: "Security-First Software Architecture",
+                hero_desc: "I develop robust Python systems, AI automations, and network architectures focused on defensive security and offensive hacking.",
+                btn_portfolio: "View Portfolio & Labs", btn_wa: "Direct WhatsApp",
+                services_title: "Services & Specializations",
                 services_sub: "Integrated digital solutions focused on performance, scalability, and cybersecurity.",
-                srv_1_desc: "Modern websites, interactive applications, and RESTful APIs built with Flask, Tailwind CSS, and SQLite.",
-                srv_2_desc: "Custom software development with a Security-First approach, penetration testing, and infrastructure hardening.",
-                srv_3_desc: "Optimization and automation of complex workflows through advanced Python scripts, n8n, and AI agents.",
-                srv_4_desc: "Graphic design for social media, corporate flyers, and strategic digital presence management.",
+                srv_1_title: "Web & App Development", srv_1_desc: "Modern websites, interactive applications, and RESTful APIs built with Flask, Tailwind CSS, and SQLite.",
+                srv_2_title: "Custom Software & Security", srv_2_desc: "Tailored software development with a Security-First approach, penetration testing, and infrastructure hardening.",
+                srv_3_title: "Python & n8n Automations", srv_3_desc: "Optimization and automation of complex workflows through advanced Python scripts, n8n, and AI agents.",
+                srv_4_title: "Graphic Design & Digital Branding", srv_4_desc: "Graphic design for social media, corporate flyers, and strategic digital presence management.",
                 bio_title: "About Me", bio_subtitle: "From Code to Cybersecurity",
                 bio_quote: "\"Technology is my reclaimed calling. My journey combines real-world maturity, problem-solving passion, and a commitment to building secure, fast, and efficient software.\"",
                 bio_mission_title: "My Mission & Vision",
                 bio_p1: "I am a Python Developer, Cybersecurity Practitioner, and Computer Engineering Student at ISTEC, focused on designing robust software solutions.",
                 bio_p2: "My career path reflects resilience, responsibility, and continuous growth. For me, programming goes far beyond writing code: it means solving real-world problems.",
                 bio_journey_title: "My Journey",
+                bio_journey_intro: "My passion for computing began in my youth with networking and hardware training, leading to my initial enrollment in Computer Engineering at ISTEC.",
                 timeline_2015: "Pause in university studies to support family.",
                 timeline_2023: "Reactivated technical path in Python and Cybersecurity.",
                 timeline_2025: "Tokio School (Python) & 210h Cybersecurity (C-Academy / CNCS).",
                 timeline_2026: "Official return to Computer Engineering at ISTEC.",
+                credly_badge_tag: "Verified Credentials",
                 credly_title: "Official Credly Mirror", credly_sub: "International badges validated by Cisco Networking Academy & OpenEDG Python Institute.",
-                credly_btn: "Credly Profile", badge_validate: "Validate Badge", certs_title: "Education & Certifications",
-                certs_sub: "Detailed chronological history with exact dates and competencies:", port_title: "Portfolio & Labs",
-                port_sub: "Software projects and technical cybersecurity labs."
+                credly_btn: "Credly Profile",
+                badge_1_desc: "Fundamentals of Python programming, control flow, algorithms, and functions.",
+                badge_2_desc: "Object-Oriented Programming (OOP), exceptions, modules, and PCAP™ exam preparation.",
+                badge_3_desc: "SOC operations, traffic analysis, threat mitigation, and incident response.",
+                badge_validate: "Validate Badge",
+                certs_title: "Education & Certifications", certs_sub: "Detailed chronological history with exact dates and competencies:",
+                edu_1_date: "February 2026 – Present",
+                edu_1_title: "Python Programming, English (B1, B2 & C1), Scrum & Entrepreneurship Course",
+                edu_1_desc: "• Technical Focus: Object-Oriented Programming (OOP), Data Structures, Modules, Process Automation, and File I/O. In active preparation for the international PCAP™ certification.",
+                edu_2_date: "September 2026 – Present",
+                edu_2_title: "Bachelor's Degree in Computer Engineering (Official Re-enrollment)",
+                edu_2_desc: "• Engineering Fundamentals: Consolidation of higher degree focusing on computer architecture, applied mathematics, algorithms, and development in C & C++.",
+                edu_3_title: "Specialized Cybersecurity Training (FCUL, IPV, IPP)",
+                edu_3_desc: "• University-level modules: Network Security, System Security, Ethical Hacking & PenTesting, and Networking Fundamentals.",
+                edu_4_title: "University Degree Attendance in Computer Engineering (1st & 2nd Years)",
+                edu_4_desc: "• Conceptual Base & C: Completed fundamental courses including C Programming, logic, algorithms, and computer architecture.",
+                edu_5_date: "Completed in 2011", edu_5_title: "Practical Networking & Hardware Course",
+                edu_5_desc: "• Physical Infrastructure: Equipment assembly, maintenance, system architecture, and communication networks.",
+                edu_6_date: "Completed in 2010", edu_6_title: "High School Diploma (10th, 11th & 12th Grades)",
+                edu_6_desc: "• Science & Technology: Secondary education focused on mathematics, physics, and exact sciences.",
+                port_title: "Portfolio & Labs", port_sub: "Software projects and technical cybersecurity simulations.",
+                port_1_desc: "Utility web app featuring Link Integrity Verifier, Speed Tester, and Message Encryptor (ROT13, Base64, Hex).",
+                port_visit_vectra: "Visit vectra8.tech",
+                port_2_desc: "Digital platform for cleaning services with dynamic quote calculator and UX/UI optimization.",
+                port_visit_lilimpa: "Visit lilimpa.pt",
+                port_3_desc: "Traffic analysis with Wireshark, vulnerability scanning with Nmap, and testing in Kali Linux.",
+                port_3_tag: "C-Academy Practical Testing Lab",
+                footer_wa_sub: "Direct Message", footer_rights: "© 2026 jfdias.pt — All rights reserved."
+            },
+            es: {
+                nav_home: "Inicio", nav_services: "Servicios", nav_bio: "Sobre Mí",
+                nav_credly: "Credly Badges", nav_certs: "Formación", nav_portfolio: "Portafolio & Labs", nav_contact: "Contacto",
+                hero_badge: "Security-First Software Architecture",
+                hero_desc: "Desarrollo sistemas robustos en Python, automatizaciones con IA y arquitecturas de red enfocadas en seguridad defensiva y hacking ofensivo.",
+                btn_portfolio: "Ver Portafolio & Labs", btn_wa: "WhatsApp Directo",
+                services_title: "Servicios & Especializaciones",
+                services_sub: "Soluciones digitales integradas enfocadas en rendimiento, escalabilidad y ciberseguridad.",
+                srv_1_title: "Desarrollo Web y Apps", srv_1_desc: "Webs modernas, aplicaciones interactivas y arquitectura de APIs RESTful con Flask, Tailwind CSS y SQLite.",
+                srv_2_title: "Software a Medida & Seguridad", srv_2_desc: "Desarrollo a medida con enfoque Security-First, pruebas de penetración y bastionado de infraestructuras.",
+                srv_3_title: "Automatización Python & n8n", srv_3_desc: "Optimización y automatización de procesos mediante scripts avanzados en Python, n8n y agentes de IA.",
+                srv_4_title: "Diseño y Gestión Digital", srv_4_desc: "Diseño gráfico para redes sociales, flyers corporativos y gestión estratégica de presencia digital.",
+                bio_title: "Sobre Mí", bio_subtitle: "Del Código a la Ciberseguridad",
+                bio_quote: "\"La tecnología es mi vocación reconquistada. Mi trayectoria combina la madurez de la vida real, la pasión por resolver problemas y el compromiso de construir software seguro, rápido y eficiente.\"",
+                bio_mission_title: "Mi Misión & Visión",
+                bio_p1: "Soy Desarrollador Python, Practicante de Ciberseguridad y Estudiante de Ingeniería Informática en el ISTEC, enfocado en diseñar soluciones de software robustas.",
+                bio_p2: "Mi trayectoria refleja resiliencia, responsabilidad y evolución continua. Para mí, programar va más allá de escribir código: consiste en resolver problemas reales.",
+                bio_journey_title: "Mi Trayectoria",
+                bio_journey_intro: "Mi pasión por la informática comenzó en mi juventud con formación en redes y hardware, culminando en mi entrada en Ingeniería Informática en el ISTEC.",
+                timeline_2015: "Pausa en los estudios para apoyo familiar y consolidación profesional.",
+                timeline_2023: "Reactivación intensiva del camino técnico en Python y Ciberseguridad.",
+                timeline_2025: "Tokio School (Python) y 210h de Ciberseguridad (Programa C-Academy / CNCS).",
+                timeline_2026: "Regreso oficial a la Licenciatura en Ingeniería Informática en el ISTEC.",
+                credly_badge_tag: "Credenciales Verificadas",
+                credly_title: "Espejo Oficial Credly", credly_sub: "Badges internacionales validadas por Cisco Networking Academy & OpenEDG Python Institute.",
+                credly_btn: "Perfil en Credly",
+                badge_1_desc: "Fundamentos de programación en Python, control de flujo, algoritmos y funciones.",
+                badge_2_desc: "Programación Orientada a Objetos (POO), excepciones, módulos y preparación PCAP™.",
+                badge_3_desc: "Operaciones SOC, análisis de tráfico, mitigación de amenazas y respuesta a incidentes.",
+                badge_validate: "Validar Badge",
+                certs_title: "Formación Académica & Certificaciones", certs_sub: "Historial cronológico detallado con fechas exactas y competencias:",
+                edu_1_date: "Febrero de 2026 – Presente",
+                edu_1_title: "Curso de Programación en Python, Inglés (B1, B2 y C1), Scrum & Emprendimiento",
+                edu_1_desc: "• Enfoque Técnico: Programación Orientada a Objetos (POO), Estructuras de Datos, Módulos, Automatización y Ficheros. En preparación activa para la certificación PCAP™.",
+                edu_2_date: "Septiembre de 2026 – Presente",
+                edu_2_title: "Grado en Ingeniería Informática (Reingreso Oficial)",
+                edu_2_desc: "• Fundamentos de Ingeniería: Consolación universitaria con foco en arquitectura de computadores, matemáticas aplicadas, algoritmos y desarrollo en C / C++.",
+                edu_3_title: "Formación Especializada en Ciberseguridad (FCUL, IPV, IPP)",
+                edu_3_desc: "• Módulos universitarios: Seguridad de Redes, Seguridad de Sistemas, Ethical Hacking & PenTesting y Redes.",
+                edu_4_title: "Frecuencia Universitaria en Ingeniería Informática (1º y 2º Años)",
+                edu_4_desc: "• Base Conceptual: Asignaturas clave aprobadas incluyendo Programación en C, lógica, algoritmos y arquitectura.",
+                edu_5_date: "Concluido en 2011", edu_5_title: "Curso Práctico de Redes y Hardware",
+                edu_5_desc: "• Infraestructura Física: Montaje, mantenimiento de sistemas, arquitectura y redes de comunicación.",
+                edu_6_date: "Concluido en 2010", edu_6_title: "Educación Secundaria (10º, 11º y 12º Años)",
+                edu_6_desc: "• Ciencias y Tecnología: Formación enfocada en matemáticas, física y ciencias exactas.",
+                port_title: "Portafolio & Laboratorios", port_sub: "Proyectos reales de software y simulaciones de Ciberseguridad.",
+                port_1_desc: "Plataforma web utilitaria con Verificador de Enlaces, Test de Velocidad y Encriptador de Mensajes.",
+                port_visit_vectra: "Visitar vectra8.tech",
+                port_2_desc: "Plataforma digital para servicios de limpieza con calculadora de presupuestos y UX/UI.",
+                port_visit_lilimpa: "Visitar lilimpa.pt",
+                port_3_desc: "Análisis de tráfico con Wireshark, escaneo con Nmap y pruebas en entorno Kali Linux.",
+                port_3_tag: "Entorno Práctico C-Academy",
+                footer_wa_sub: "Mensaje Directo", footer_rights: "© 2026 jfdias.pt — Todos los derechos reservados."
+            },
+            fr: {
+                nav_home: "Accueil", nav_services: "Services", nav_bio: "À Propos",
+                nav_credly: "Credly Badges", nav_certs: "Formation", nav_portfolio: "Portfolio & Labs", nav_contact: "Contact",
+                hero_badge: "Security-First Software Architecture",
+                hero_desc: "Je développe des systèmes Python robustes, des automatisations IA et des architectures réseau axées sur la sécurité défensive et le hacking offensif.",
+                btn_portfolio: "Voir Portfolio & Labs", btn_wa: "WhatsApp Direct",
+                services_title: "Services & Spécialisations",
+                services_sub: "Solutions numériques intégrées axées sur la performance, la scalabilité et la cybersécurité.",
+                srv_1_title: "Développement Web & App", srv_1_desc: "Sites web modernes, applications interactives et architecture d'API RESTful avec Flask, Tailwind CSS et SQLite.",
+                srv_2_title: "Logiciel Sur Mesure & Sécurité", srv_2_desc: "Développement sur mesure avec approche Security-First, tests d'intrusion et hardening d'infrastructures.",
+                srv_3_title: "Automatisations Python & n8n", srv_3_desc: "Optimisation et automatisation de processus via scripts Python avancés, n8n et agents IA.",
+                srv_4_title: "Design & Gestion Numérique", srv_4_desc: "Design graphique pour réseaux sociaux, flyers d'entreprise et gestion stratégique de présence numérique.",
+                bio_title: "À Propos", bio_subtitle: "Du Code à la Cybersécurité",
+                bio_quote: "\"La technologie est ma vocation reconquise. Mon parcours combine la maturité du monde réel, la passion de résoudre des problèmes et l'engagement de créer des logiciels sûrs et efficients.\"",
+                bio_mission_title: "Ma Mission & Vision",
+                bio_p1: "Je suis Développeur Python, Praticien en Cybersécurité et Étudiant en Génie Informatique à l'ISTEC, axé sur la conception de logiciels robustes.",
+                bio_p2: "Mon parcours reflète la résilience, la responsabilité et une évolution continue. Pour moi, programmer dépasse l'écriture de code : il s'agit de résoudre des problèmes réels.",
+                bio_journey_title: "Mon Parcours",
+                bio_journey_intro: "Ma passion pour l'informatique a débuté dans ma jeunesse avec une formation en réseaux et matériel, menant à mon bac en Génie Informatique à l'ISTEC.",
+                timeline_2015: "Pause dans les études universitaires pour soutenir ma famille.",
+                timeline_2023: "Réactivation de mon parcours technique en Python et Cybersécurité.",
+                timeline_2025: "Tokio School (Python) & 210h en Cybersécurité (Programme C-Academy / CNCS).",
+                timeline_2026: "Retour officiel en Licence de Génie Informatique à l'ISTEC.",
+                credly_badge_tag: "Badges Vérifiés",
+                credly_title: "Miroir Officiel Credly", credly_sub: "Badges internationaux validés par Cisco Networking Academy & OpenEDG Python Institute.",
+                credly_btn: "Profil sur Credly",
+                badge_1_desc: "Fondements de la programmation Python, flux de contrôle, algorithmes et fonctions.",
+                badge_2_desc: "Programmation Orientée Objet (POO), exceptions, modules et préparation PCAP™.",
+                badge_3_desc: "Opérations SOC, analyse du trafic, atténuation des menaces et réponse aux incidents.",
+                badge_validate: "Valider le Badge",
+                certs_title: "Formation & Certifications", certs_sub: "Historique chronologique détaillé avec dates exactes et compétences :",
+                edu_1_date: "Février 2026 – Présent",
+                edu_1_title: "Formation Programmetion Python, Anglais (B1, B2, C1), Scrum & Entrepreneuriat",
+                edu_1_desc: "• Focus Technique : Programmation Orientée Objet (POO), Structures de Données, Modules, Automatisation et Fichiers. Préparation active à l'examen PCAP™.",
+                edu_2_date: "Septembre 2026 – Présent",
+                edu_2_title: "Licence en Génie Informatique (Réinscription Officielle)",
+                edu_2_desc: "• Fondements en Ingénierie : Consolidation universitaire axée sur l'architecture des ordinateurs, mathématiques appliquées, algorithmes et développement C/C++.",
+                edu_3_title: "Formation Spécialisée en Cybersécurité (FCUL, IPV, IPP)",
+                edu_3_desc: "• Modules universitaires : Sécurité Réseau, Sécurité Système, Hacking Éthique & PenTesting et Réseaux.",
+                edu_4_title: "Fréquentation Universitaire en Génie Informatique (1ère & 2ème Années)",
+                edu_4_desc: "• Base Conceptuelle : Réussite des cours fondamentaux dont Programmation C, logique, algorithmes et architecture.",
+                edu_5_date: "Terminé en 2011", edu_5_title: "Cours Pratique Réseaux & Matériel",
+                edu_5_desc: "• Infrastructure Physique : Assemblage, maintenance des équipements, architecture système et réseaux.",
+                edu_6_date: "Terminé en 2010", edu_6_title: "Diplôme d'Études Secondaires (10e, 11e et 12e années)",
+                edu_6_desc: "• Sciences et Technologies : Formation axée sur les mathématiques, la physique et les sciences exactes.",
+                port_title: "Portfolio & Labs", port_sub: "Projets logiciels réels et simulations de laboratoires de cybersécurité.",
+                port_1_desc: "Application web utilitaire avec Vérificateur de Liens, Test de Vitesse et Chiffrement de Messages.",
+                port_visit_vectra: "Visiter vectra8.tech",
+                port_2_desc: "Plateforme numérique pour services de nettoyage avec calculateur dynamique et optimisation UX/UI.",
+                port_visit_lilimpa: "Visiter lilimpa.pt",
+                port_3_desc: "Analyse du trafic avec Wireshark, balayage Nmap et tests dans l'environnement Kali Linux.",
+                port_3_tag: "Laboratoire Pratique C-Academy",
+                footer_wa_sub: "Message Direct", footer_rights: "© 2026 jfdias.pt — Tous droits réservés."
+            },
+            de: {
+                nav_home: "Startseite", nav_services: "Leistungen", nav_bio: "Über Mich",
+                nav_credly: "Credly Badges", nav_certs: "Ausbildung", nav_portfolio: "Portfolio & Labs", nav_contact: "Kontakt",
+                hero_badge: "Security-First Software Architecture",
+                hero_desc: "Ich entwickle robuste Python-Systeme, KI-Automatisierungen und Netzwerkarchitekturen mit Fokus auf defensive Sicherheit und offensives Hacking.",
+                btn_portfolio: "Portfolio & Labs Ansehen", btn_wa: "Direktes WhatsApp",
+                services_title: "Leistungen & Spezialisierungen",
+                services_sub: "Integrierte digitale Lösungen mit Fokus auf Leistung, Skalierbarkeit und Cybersicherheit.",
+                srv_1_title: "Web- & App-Entwicklung", srv_1_desc: "Moderne Websites, interaktive Anwendungen und RESTful-API-Architekturen mit Flask, Tailwind CSS und SQLite.",
+                srv_2_title: "Maßgeschneiderte Software & Sicherheit", srv_2_desc: "Individualsoftware mit Security-First-Ansatz, Penetrationstests und Infrastruktur-Härtung.",
+                srv_3_title: "Python- & n8n-Automatisierung", srv_3_desc: "Optimierung und Automatisierung komplexer Prozesse durch fortgeschrittene Python-Scripte, n8n und KI-Agenten.",
+                srv_4_title: "Design & Digitales Management", srv_4_desc: "Grafikdesign für soziale Medien, Unternehmensflyer und strategische Verwaltung der digitalen Präsenz.",
+                bio_title: "Über Mich", bio_subtitle: "Vom Code zur Cybersicherheit",
+                bio_quote: "\"Technologie ist meine wiederentdeckte Berufung. Mein Weg verbindet reale Reife, Leidenschaft für Problemlösung und das Engagement für sichere, schnelle und effiziente Software.\"",
+                bio_mission_title: "Meine Mission & Vision",
+                bio_p1: "Ich bin Python-Entwickler, Cybersicherheits-Experte und Informatik-Student am ISTEC, fokussiert auf robuste Softwarelösungen mit Security-First-Ansatz.",
+                bio_p2: "Mein beruflicher Weg spiegelt Belastbarkeit, Verantwortung und kontinuierliches Wachstum wider. Programmieren bedeutet für mich weit mehr als nur Code schreiben: Es löst reale Probleme.",
+                bio_journey_title: "Mein Weg",
+                bio_journey_intro: "Meine Leidenschaft für Informatik begann in meiner Jugend mit Netzwerk- und Hardware-Ausbildung und führte zur Einschreibung am ISTEC.",
+                timeline_2015: "Bewusste Pause im Studium zur Unterstützung der Familie und beruflichen Festigung.",
+                timeline_2023: "Intensive Reaktivierung des technischen Weges in Python und Cybersicherheit.",
+                timeline_2025: "Tokio School (Python) & 210h Cybersicherheit (Programm C-Academy / CNCS).",
+                timeline_2026: "Offizielle Rückkehr zum Bachelor-Studiengang Informatik am ISTEC.",
+                credly_badge_tag: "Verifizierte Nachweise",
+                credly_title: "Offizieller Credly-Spiegel", credly_sub: "Internationale Badges, validiert von Cisco Networking Academy & OpenEDG Python Institute.",
+                credly_btn: "Credly-Profil",
+                badge_1_desc: "Grundlagen der Python-Programmierung, Ablaufsteuerung, Algorithmen und Funktionen.",
+                badge_2_desc: "Objektorientierte Programmierung (OOP), Ausnahmen, Module und PCAP™-Prüfungsvorbereitung.",
+                badge_3_desc: "SOC-Betrieb, Verkehrsanalyse, Bedrohungsminderung und Vorfallreaktion.",
+                badge_validate: "Badge Validieren",
+                certs_title: "Akademische Ausbildung & Zertifikate", certs_sub: "Detaillierter chronologischer Ablauf mit genauen Daten und erworbenen Kompetenzen:",
+                edu_1_date: "Februar 2026 – Heute",
+                edu_1_title: "Python-Programmierung, Englisch (B1, B2 & C1), Scrum & Unternehmerkurs",
+                edu_1_desc: "• Technischer Fokus: Objektorientierte Programmierung (OOP), Datenstrukturen, Module, Automatisierung und Dateiverarbeitung. Vorbereitung auf PCAP™-Zertifizierung.",
+                edu_2_date: "September 2026 – Heute",
+                edu_2_title: "Bachelor-Studiengang Informatik (Offizielle Wiedereinschreibung)",
+                edu_2_desc: "• Ingenieur-Grundlagen: Vertiefung mit Schwerpunkt auf Computerarchitektur, angewandte Mathematik, Algorithmen und Entwicklung in C / C++.",
+                edu_3_title: "Spezialisierte Cybersicherheits-Ausbildung (FCUL, IPV, IPP)",
+                edu_3_desc: "• Universitäre Module: Netzwerksicherheit, Systemsicherheit, Ethical Hacking & PenTesting und Netzwerkgrundlagen.",
+                edu_4_title: "Hochschulstudium Informatik (1. und 2. Jahr)",
+                edu_4_desc: "• Konzeptionelle Basis: Erfolgreicher Abschluss grundlegender Fächer wie C-Programmierung, Logik, Algorithmen und Computerarchitektur.",
+                edu_5_date: "Abgeschlossen 2011", edu_5_title: "Praktischer Kurs für Netzwerke & Hardware",
+                edu_5_desc: "• Physische Infrastruktur: Montage, Wartung von Geräten, Systemarchitektur und Kommunikationsnetze.",
+                edu_6_date: "Abgeschlossen 2010", edu_6_title: "Sekundarschulabschluss (Abitur-Äquivalent)",
+                edu_6_desc: "• Wissenschaft & Technologie: Ausrichtung auf Mathematik, Physik und exakte Wissenschaften.",
+                port_title: "Portfolio & Labs", port_sub: "Echte Softwareprojekte und technische Cybersicherheits-Simulationen.",
+                port_1_desc: "Nützliche Web-App mit Link-Integritätsprüfung, Geschwindigkeitsmesser und Nachrichtenverschlüsselung.",
+                port_visit_vectra: "vectra8.tech Besuchen",
+                port_2_desc: "Digitale Plattform für Reinigungsdienste mit dynamischem Angebotsschreiber und UX/UI-Optimierung.",
+                port_visit_lilimpa: "lilimpa.pt Besuchen",
+                port_3_desc: "Verkehrsanalyse mit Wireshark, Schwachstellen-Scan mit Nmap und Tests unter Kali Linux.",
+                port_3_tag: "C-Academy Praktisches Test-Lab",
+                footer_wa_sub: "Direktnachricht", footer_rights: "© 2026 jfdias.pt — Alle Rechte vorbehalten."
             }
         };
 
